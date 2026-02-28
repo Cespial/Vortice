@@ -84,6 +84,10 @@
 
         .btn-acquire{position:relative;overflow:hidden;border:1px solid rgba(26,25,24,.15);background:rgba(250,249,247,.75);backdrop-filter:blur(8px);opacity:0;transform:translateY(6px);transition:all .5s cubic-bezier(.16,1,.3,1)}
         .piece-card:hover .btn-acquire{opacity:1;transform:translateY(0)}
+        @media(max-width:767px){
+            .piece-card .kb-wrap>div.absolute{opacity:1;background:linear-gradient(to top,rgba(12,12,11,.55),transparent 50%)}
+            .btn-acquire{opacity:1;transform:translateY(0);background:rgba(250,249,247,.92)}
+        }
         .btn-acquire::before{content:'';position:absolute;inset:0;background:#1A1918;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1);z-index:-1}
         .btn-acquire:hover::before{transform:scaleX(1)}
         .btn-acquire:hover{color:#F3F1ED;border-color:#1A1918}
@@ -231,8 +235,8 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6">
-                <!-- Left: Photos -->
-                <div class="lg:col-span-6 order-1">
+                <!-- Photos (mobile: after bio, desktop: left) -->
+                <div class="lg:col-span-6 order-2 lg:order-1">
                     <!-- Main diptych: working + sketching -->
                     <div class="rv">
                         <div class="about-img">
@@ -254,8 +258,8 @@
                     </div>
                 </div>
 
-                <!-- Right: Bio -->
-                <div class="lg:col-span-5 lg:col-start-8 order-2 flex flex-col justify-center">
+                <!-- Bio (mobile: first, desktop: right) -->
+                <div class="lg:col-span-5 lg:col-start-8 order-1 lg:order-2 flex flex-col justify-center">
                     <div class="rv">
                         <!-- Portrait -->
                         <div class="about-img w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden mb-8 border border-chalk">
@@ -402,7 +406,7 @@
                         <span class="acc-icon font-display text-xl text-copper">+</span>
                     </button>
                     <div class="acc-content">
-                        <div class="pb-7 pl-[68px] md:pl-[100px] max-w-lg">
+                        <div class="pb-7 pl-12 md:pl-[100px] max-w-lg">
                             <p class="font-body text-[13px] leading-[1.85] text-slate">El gesto humano sobre el metal frío. Cada pieza es elaborada completamente a mano, sin moldes, sin producción en serie. La imperfección controlada es la firma de autenticidad que ninguna máquina puede replicar.</p>
                         </div>
                     </div>
@@ -418,7 +422,7 @@
                         <span class="acc-icon font-display text-xl text-copper">+</span>
                     </button>
                     <div class="acc-content">
-                        <div class="pb-7 pl-[68px] md:pl-[100px] max-w-lg">
+                        <div class="pb-7 pl-12 md:pl-[100px] max-w-lg">
                             <p class="font-body text-[13px] leading-[1.85] text-slate">Singularidad absoluta. Ningún talismán se repite. Cada obra nace una sola vez, destinada a una sola persona. Tu pieza será tan única como la huella que dejaste al nacer.</p>
                         </div>
                     </div>
@@ -434,7 +438,7 @@
                         <span class="acc-icon font-display text-xl text-copper">+</span>
                     </button>
                     <div class="acc-content">
-                        <div class="pb-7 pl-[68px] md:pl-[100px] max-w-lg">
+                        <div class="pb-7 pl-12 md:pl-[100px] max-w-lg">
                             <p class="font-body text-[13px] leading-[1.85] text-slate">Tuercas, tornillos y engranajes que renacen. Lo que otros descartan, nosotros lo alquimizamos en arte. Metales reciclados, mecanismos rescatados: la sostenibilidad es nuestra materia prima.</p>
                         </div>
                     </div>
