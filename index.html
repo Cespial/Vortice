@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="VÓRTICE — Joyería escultórica de autor. Esculturas mecánicas ensambladas a mano en Medellín, Colombia.">
+    <meta name="description" content="VÓRTICE — Joyería escultórica de autor. Esculturas mecánicas ensambladas a mano en Medellín, Colombia. Donde el caos industrial se vuelve alquimia.">
     <title>VÓRTICE — Alquimia del Caos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,24 +14,19 @@
             theme: {
                 extend: {
                     colors: {
-                        /* ── Gallery White Palette ── */
-                        gallery:   '#F4F2EE',   /* primary bg — warm gallery white */
-                        canvas:    '#FAFAF8',    /* cards, elevated surfaces */
-                        plaster:   '#EBE8E3',    /* section alternates */
-                        chalk:     '#E0DCD6',    /* borders, dividers */
-                        stone:     '#D0CBC4',    /* heavier dividers */
-                        /* ── Text tones ── */
-                        ink:       '#1A1918',    /* primary text — warm near-black */
-                        graphite:  '#3D3A37',    /* headings secondary */
-                        slate:     '#6B6660',    /* body text */
-                        fossil:    '#9A958E',    /* muted labels */
-                        /* ── Accents ── */
+                        gallery:   '#F3F1ED',
+                        canvas:    '#FAF9F7',
+                        plaster:   '#EAE7E2',
+                        chalk:     '#DDD9D3',
+                        stone:     '#CEC9C2',
+                        ink:       '#1A1918',
+                        graphite:  '#3D3A37',
+                        slate:     '#65615B',
+                        fossil:    '#96918A',
                         copper:    '#B87333',
                         brass:     '#C5A059',
-                        oxide:     '#956B3D',
-                        /* ── Dark (hero & contrast sections) ── */
-                        abyss:     '#0E0E0D',
-                        forge:     '#1A1918',
+                        oxide:     '#8B5E34',
+                        abyss:     '#0C0C0B',
                     },
                     fontFamily: {
                         display: ['"Bodoni Moda"', 'Georgia', 'serif'],
@@ -43,421 +38,335 @@
         }
     </script>
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#B87333 #F3F1ED}
+        ::-webkit-scrollbar{width:3px}
+        ::-webkit-scrollbar-track{background:#F3F1ED}
+        ::-webkit-scrollbar-thumb{background:#B87333}
 
-        html {
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: #B87333 #F4F2EE;
-        }
-        ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-track { background: #F4F2EE; }
-        ::-webkit-scrollbar-thumb { background: #B87333; }
+        body{background:#F3F1ED;color:#1A1918;font-family:'Syne',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-        body {
-            background: #F4F2EE;
-            color: #1A1918;
-            font-family: 'Syne', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+        /* Grain */
+        body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.18;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E")}
 
-        /* ── Subtle warm grain ── */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.22;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-        }
+        /* Reveals */
+        .rv{opacity:0;transform:translateY(35px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+        .rv.vis{opacity:1;transform:translateY(0)}
+        .rv-d1{transition-delay:.12s}.rv-d2{transition-delay:.24s}.rv-d3{transition-delay:.36s}
 
-        /* ── Scroll reveal ── */
-        .rv {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .rv.vis { opacity: 1; transform: translateY(0); }
-        .rv-d1 { transition-delay: 0.12s; }
-        .rv-d2 { transition-delay: 0.24s; }
-        .rv-d3 { transition-delay: 0.36s; }
+        /* Hero entrance */
+        .hero-line{overflow:hidden}
+        .hero-line span{display:inline-block;transform:translateY(115%);animation:riseUp 1.4s cubic-bezier(.16,1,.3,1) forwards}
+        .hero-line:nth-child(2) span{animation-delay:.15s}
+        .hero-sub{opacity:0;animation:fadeIn 1.5s cubic-bezier(.16,1,.3,1) .65s forwards}
+        .hero-cta-a{opacity:0;animation:fadeIn 1.5s cubic-bezier(.16,1,.3,1) .95s forwards}
+        @keyframes riseUp{to{transform:translateY(0)}}
+        @keyframes fadeIn{to{opacity:1}}
 
-        /* ── Hero entrance ── */
-        .hero-line { overflow: hidden; }
-        .hero-line span {
-            display: inline-block;
-            transform: translateY(115%);
-            animation: riseUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .hero-line:nth-child(2) span { animation-delay: 0.18s; }
-        .hero-sub { opacity: 0; animation: fadeIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards; }
-        .hero-cta-anim { opacity: 0; animation: fadeIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) 1s forwards; }
-        @keyframes riseUp { to { transform: translateY(0); } }
-        @keyframes fadeIn { to { opacity: 1; } }
+        /* Header */
+        .hdr{background:transparent;transition:all .5s cubic-bezier(.16,1,.3,1)}
+        .hdr.scrolled{background:rgba(243,241,237,.88);backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2);border-bottom:1px solid rgba(206,201,194,.3)}
+        .hdr.scrolled .nav-link{color:#65615B}
+        .hdr.scrolled .nav-link:hover{color:#B87333}
+        .hdr.scrolled .logo-t{color:#1A1918}
+        .hdr.scrolled .menu-line{background:#1A1918}
 
-        /* ── Header ── */
-        .hdr {
-            background: transparent;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        /* In hero (dark zone): text stays light. After scroll past hero: shift to light bg + dark text */
-        .hdr.scrolled {
-            background: rgba(244, 242, 238, 0.85);
-            backdrop-filter: blur(20px) saturate(1.2);
-            -webkit-backdrop-filter: blur(20px) saturate(1.2);
-            border-bottom: 1px solid rgba(208, 203, 196, 0.4);
-        }
-        .hdr.scrolled .nav-link { color: #6B6660; }
-        .hdr.scrolled .nav-link:hover { color: #B87333; }
-        .hdr.scrolled .logo-text { color: #1A1918; }
-        .hdr.scrolled .logo-accent { color: #B87333; }
-        .hdr.scrolled .menu-line { background: #1A1918; }
-        .hdr.scrolled .nav-cta { border-color: rgba(184,115,51,0.4); color: #B87333; }
+        /* Buttons */
+        .btn-hero{position:relative;overflow:hidden;border:1px solid rgba(184,115,51,.5);background:transparent;transition:color .5s cubic-bezier(.16,1,.3,1),border-color .5s}
+        .btn-hero::before{content:'';position:absolute;inset:0;background:#B87333;transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.16,1,.3,1);z-index:-1}
+        .btn-hero:hover::before{transform:scaleX(1)}
+        .btn-hero:hover{color:#FAF9F7;border-color:#B87333}
 
-        /* ── Brutaliste button (dark version for hero) ── */
-        .btn-brut-light {
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(184, 115, 51, 0.5);
-            background: transparent;
-            transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                        border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .btn-brut-light::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: #B87333;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: -1;
-        }
-        .btn-brut-light:hover::before { transform: scaleX(1); }
-        .btn-brut-light:hover { color: #FAFAF8; border-color: #B87333; }
+        .btn-ink{position:relative;overflow:hidden;border:1px solid #1A1918;background:transparent;transition:color .5s cubic-bezier(.16,1,.3,1)}
+        .btn-ink::before{content:'';position:absolute;inset:0;background:#1A1918;transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.16,1,.3,1);z-index:-1}
+        .btn-ink:hover::before{transform:scaleX(1)}
+        .btn-ink:hover{color:#F3F1ED}
 
-        /* Button for light sections */
-        .btn-brut {
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(184, 115, 51, 0.45);
-            background: transparent;
-            transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                        border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .btn-brut::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: #1A1918;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: -1;
-        }
-        .btn-brut:hover::before { transform: scaleX(1); }
-        .btn-brut:hover { color: #F4F2EE; border-color: #1A1918; }
+        .btn-acquire{position:relative;overflow:hidden;border:1px solid rgba(26,25,24,.15);background:rgba(250,249,247,.75);backdrop-filter:blur(8px);opacity:0;transform:translateY(6px);transition:all .5s cubic-bezier(.16,1,.3,1)}
+        .piece-card:hover .btn-acquire{opacity:1;transform:translateY(0)}
+        .btn-acquire::before{content:'';position:absolute;inset:0;background:#1A1918;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1);z-index:-1}
+        .btn-acquire:hover::before{transform:scaleX(1)}
+        .btn-acquire:hover{color:#F3F1ED;border-color:#1A1918}
 
-        /* ── Catalog acquire ── */
-        .btn-acquire {
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(26, 25, 24, 0.2);
-            background: rgba(244, 242, 238, 0.7);
-            backdrop-filter: blur(8px);
-            opacity: 0;
-            transform: translateY(8px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .piece-card:hover .btn-acquire {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .btn-acquire::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: #1A1918;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: -1;
-        }
-        .btn-acquire:hover::before { transform: scaleX(1); }
-        .btn-acquire:hover { color: #F4F2EE; border-color: #1A1918; }
+        /* Ken Burns */
+        .kb-wrap{overflow:hidden}
+        .kb-wrap img{transition:transform 5s cubic-bezier(.25,.46,.45,.94)}
+        .piece-card:hover .kb-wrap img{transform:scale(1.06)}
+        .piece-card{transition:box-shadow .5s cubic-bezier(.16,1,.3,1)}
+        .piece-card:hover{box-shadow:0 12px 48px rgba(26,25,24,.07)}
 
-        /* ── Ken Burns ── */
-        .kb-wrap { overflow: hidden; }
-        .kb-wrap img {
-            transition: transform 5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .piece-card:hover .kb-wrap img {
-            transform: scale(1.06);
-        }
+        /* Divider */
+        .divider-a{background:linear-gradient(90deg,transparent,rgba(184,115,51,.25),transparent);height:1px;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+        .divider-a.vis{transform:scaleX(1)}
 
-        /* ── Card hover ── */
-        .piece-card {
-            transition: box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .piece-card:hover {
-            box-shadow: 0 8px 40px rgba(26, 25, 24, 0.08);
-        }
+        /* Accordion */
+        .acc-content{max-height:0;overflow:hidden;transition:max-height .7s cubic-bezier(.16,1,.3,1)}
+        .acc-item.open .acc-content{max-height:250px}
+        .acc-icon{transition:transform .5s cubic-bezier(.16,1,.3,1)}
+        .acc-item.open .acc-icon{transform:rotate(45deg)}
+        .acc-bar{transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+        .acc-item.open .acc-bar{transform:scaleX(1)}
 
-        /* ── Divider ── */
-        .divider-anim {
-            background: linear-gradient(90deg, transparent, rgba(184, 115, 51, 0.3), transparent);
-            height: 1px;
-            transform: scaleX(0);
-            transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .divider-anim.vis { transform: scaleX(1); }
+        /* SVG */
+        .spin-s{animation:spin 80s linear infinite;transform-origin:center}
+        .spin-sr{animation:spin 60s linear infinite reverse;transform-origin:center}
+        @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
-        /* ── Accordion ── */
-        .acc-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .acc-item.open .acc-content { max-height: 250px; }
-        .acc-icon { transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-        .acc-item.open .acc-icon { transform: rotate(45deg); }
-        .acc-bar {
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .acc-item.open .acc-bar { transform: scaleX(1); }
+        /* Mobile menu */
+        .mob-menu{clip-path:circle(0% at calc(100% - 2rem) 2rem);transition:clip-path .7s cubic-bezier(.16,1,.3,1)}
+        .mob-menu.open{clip-path:circle(150% at calc(100% - 2rem) 2rem)}
 
-        /* ── SVG ── */
-        .spin-slow { animation: spin 80s linear infinite; transform-origin: center; }
-        .spin-slow-rev { animation: spin 60s linear infinite reverse; transform-origin: center; }
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        /* Helpers */
+        .plx{will-change:transform}
+        .grid-line{height:1px;background:rgba(206,201,194,.45)}
+        .ls-tech{letter-spacing:.3em}
+        .ls-wide{letter-spacing:.18em}
+        .ref-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:#B87333;text-transform:uppercase}
+        .frame-corner{position:relative}
+        .frame-corner::before,.frame-corner::after{content:'';position:absolute;width:18px;height:18px;border-color:rgba(184,115,51,.2);border-style:solid}
+        .frame-corner::before{top:0;left:0;border-width:1px 0 0 1px}
+        .frame-corner::after{bottom:0;right:0;border-width:0 1px 1px 0}
 
-        /* ── Mobile menu ── */
-        .mob-menu {
-            clip-path: circle(0% at calc(100% - 2rem) 2rem);
-            transition: clip-path 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .mob-menu.open { clip-path: circle(150% at calc(100% - 2rem) 2rem); }
+        /* Hero gradient — fades into gallery bg */
+        .hero-dark{background:linear-gradient(180deg,rgba(12,12,11,.1) 0%,rgba(12,12,11,.45) 45%,rgba(12,12,11,.88) 82%,#F3F1ED 100%)}
 
-        /* ── Parallax ── */
-        .plx { will-change: transform; }
+        /* Cursor */
+        .cursor-glow{position:fixed;width:280px;height:280px;background:radial-gradient(circle,rgba(184,115,51,.03) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
 
-        /* ── Cursor ── */
-        .cursor-glow {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(184, 115, 51, 0.03) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transform: translate(-50%, -50%);
-        }
-
-        /* ── Lines ── */
-        .grid-line-h { height: 1px; background: rgba(208, 203, 196, 0.5); }
-
-        /* ── Corner frame ── */
-        .frame-corner { position: relative; }
-        .frame-corner::before,
-        .frame-corner::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border-color: rgba(184, 115, 51, 0.25);
-            border-style: solid;
-        }
-        .frame-corner::before { top: 0; left: 0; border-width: 1px 0 0 1px; }
-        .frame-corner::after { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
-
-        /* ── Ref label ── */
-        .ref-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 9px;
-            letter-spacing: 0.2em;
-            color: #B87333;
-            text-transform: uppercase;
-        }
-
-        /* ── Hero overlay ── */
-        .hero-dark {
-            background: linear-gradient(
-                180deg,
-                rgba(14, 14, 13, 0.15) 0%,
-                rgba(14, 14, 13, 0.5) 50%,
-                rgba(14, 14, 13, 0.92) 85%,
-                #F4F2EE 100%
-            );
-        }
-
-        /* ── Spacing ── */
-        .ls-tech { letter-spacing: 0.3em; }
-        .ls-wide { letter-spacing: 0.18em; }
+        /* Nosotros photo hover */
+        .about-img{overflow:hidden}
+        .about-img img{transition:transform 4s cubic-bezier(.25,.46,.45,.94)}
+        .about-img:hover img{transform:scale(1.04)}
     </style>
 </head>
 <body>
 
     <div class="cursor-glow hidden lg:block" id="cursorGlow"></div>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- HEADER                                       -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════ -->
+    <!-- HEADER                                 -->
+    <!-- ══════════════════════════════════════ -->
     <header id="hdr" class="hdr fixed top-0 left-0 w-full z-50 py-4 md:py-5">
-        <nav class="max-w-[1440px] mx-auto px-5 md:px-10 flex items-center justify-between">
+        <nav class="max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between">
             <button id="mobBtn" class="md:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-1.5" aria-label="Menú">
-                <span class="menu-line block w-6 h-px bg-white/80 transition-all duration-500" id="ml1"></span>
-                <span class="menu-line block w-3 h-px bg-white/80 transition-all duration-500 ml-auto" id="ml2"></span>
+                <span class="menu-line block w-6 h-px bg-white/70 transition-all duration-500" id="ml1"></span>
+                <span class="menu-line block w-3 h-px bg-white/70 transition-all duration-500 ml-auto" id="ml2"></span>
             </button>
-
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#atelier" class="nav-link font-mono text-[10px] ls-tech text-white/50 hover:text-copper transition-colors duration-400">[ EL ATELIER ]</a>
-                <a href="#manifiesto" class="nav-link font-mono text-[10px] ls-tech text-white/50 hover:text-copper transition-colors duration-400">[ MANIFIESTO ]</a>
+            <div class="hidden md:flex items-center gap-7">
+                <a href="#nosotros" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ NOSOTROS ]</a>
+                <a href="#manifiesto" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ MANIFIESTO ]</a>
             </div>
-
             <a href="#" class="absolute left-1/2 -translate-x-1/2">
-                <h1 class="font-display text-[22px] md:text-[26px] font-medium tracking-[0.12em]">
-                    <span class="logo-text text-white/90">V</span><span class="logo-accent text-copper">Ó</span><span class="logo-text text-white/90">RTICE</span>
+                <h1 class="font-display text-[22px] md:text-[26px] font-medium tracking-[.12em]">
+                    <span class="logo-t text-white/85">V</span><span class="text-copper">Ó</span><span class="logo-t text-white/85">RTICE</span>
                 </h1>
             </a>
-
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#obras" class="nav-link font-mono text-[10px] ls-tech text-white/50 hover:text-copper transition-colors duration-400">[ OBRAS ]</a>
-                <a href="#contacto" class="nav-link font-mono text-[10px] ls-tech text-white/50 hover:text-copper transition-colors duration-400">[ CONTACTO ]</a>
+            <div class="hidden md:flex items-center gap-7">
+                <a href="#obras" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ OBRAS ]</a>
+                <a href="#contacto" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ CONTACTO ]</a>
             </div>
-
             <div class="w-8 md:hidden"></div>
         </nav>
     </header>
 
     <!-- Mobile menu -->
     <div id="mobMenu" class="mob-menu fixed inset-0 z-40 bg-gallery flex items-center justify-center">
-        <nav class="text-center space-y-7">
-            <a href="#atelier" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">El Atelier</a>
+        <nav class="text-center space-y-6">
+            <a href="#nosotros" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">Nosotros</a>
             <a href="#manifiesto" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">Manifiesto</a>
             <a href="#obras" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">Obras</a>
             <a href="#contacto" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">Contacto</a>
         </nav>
     </div>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- HERO — Dark Immersive Entry                  -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════ -->
+    <!-- HERO — Video Inmersivo                  -->
+    <!-- ══════════════════════════════════════ -->
     <section id="hero" class="relative h-screen w-full flex items-end overflow-hidden">
-        <div class="absolute inset-0 plx" id="heroBg">
-            <img
-                src="public/1000622357.jpg"
-                alt="V formada con tornillos sobre arena volcánica negra — VÓRTICE"
-                class="w-full h-full object-cover scale-110"
-            >
+        <div class="absolute inset-0">
+            <video autoplay muted loop playsinline
+                poster="public/header-frame.jpg"
+                class="w-full h-full object-cover scale-[1.05]">
+                <source src="public/header.mp4" type="video/mp4">
+            </video>
         </div>
-
         <div class="hero-dark absolute inset-0"></div>
 
-        <svg class="absolute inset-0 w-full h-full opacity-[0.04]" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
-            <g class="spin-slow">
-                <circle cx="500" cy="500" r="320" fill="none" stroke="#B87333" stroke-width="0.4" stroke-dasharray="3 9"/>
-                <circle cx="500" cy="500" r="250" fill="none" stroke="#C5A059" stroke-width="0.3" stroke-dasharray="2 14"/>
-            </g>
-            <g class="spin-slow-rev">
-                <ellipse cx="500" cy="500" rx="380" ry="200" fill="none" stroke="#B87333" stroke-width="0.3" stroke-dasharray="4 10" transform="rotate(25 500 500)"/>
-            </g>
+        <svg class="absolute inset-0 w-full h-full opacity-[0.03]" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+            <g class="spin-s"><circle cx="500" cy="500" r="320" fill="none" stroke="#B87333" stroke-width=".4" stroke-dasharray="3 9"/></g>
+            <g class="spin-sr"><ellipse cx="500" cy="500" rx="380" ry="200" fill="none" stroke="#B87333" stroke-width=".25" stroke-dasharray="4 12" transform="rotate(25 500 500)"/></g>
         </svg>
 
-        <div class="relative z-10 w-full max-w-[1440px] mx-auto px-5 md:px-10 pb-14 md:pb-24">
-            <div class="max-w-4xl">
-                <div class="hero-sub mb-5">
-                    <span class="font-mono text-[9px] ls-tech text-copper/60 uppercase">ref. 001 — colección génesis</span>
+        <div class="relative z-10 w-full max-w-[1400px] mx-auto px-5 md:px-10 pb-16 md:pb-24">
+            <div class="max-w-3xl">
+                <div class="hero-sub mb-4">
+                    <span class="font-mono text-[9px] ls-tech text-copper/50 uppercase">ref. 001 — joyería escultórica de autor</span>
                 </div>
-
-                <h2 class="font-display font-medium leading-[0.88] mb-6 md:mb-8">
-                    <div class="hero-line">
-                        <span class="text-[clamp(2.6rem,8.5vw,8rem)] text-white/90">LA ALQUIMIA</span>
-                    </div>
-                    <div class="hero-line">
-                        <span class="text-[clamp(2.6rem,8.5vw,8rem)] text-white/90">DEL <em class="text-copper not-italic font-display italic">CAOS</em></span>
-                    </div>
+                <h2 class="font-display font-medium leading-[.88] mb-6 md:mb-8">
+                    <div class="hero-line"><span class="text-[clamp(2.5rem,8vw,7.5rem)] text-white/90">LA ALQUIMIA</span></div>
+                    <div class="hero-line"><span class="text-[clamp(2.5rem,8vw,7.5rem)] text-white/90">DEL <em class="text-copper not-italic font-display italic">CAOS</em></span></div>
                 </h2>
-
-                <p class="hero-sub font-mono text-[11px] md:text-[12px] ls-wide text-white/40 mb-10 md:mb-14 max-w-lg">
+                <p class="hero-sub font-mono text-[11px] md:text-[12px] ls-wide text-white/35 mb-10 md:mb-14 max-w-md">
                     <span class="text-copper">&gt;_</span> ESCULTURAS MECÁNICAS. ENSAMBLADAS A MANO.
                 </p>
-
-                <div class="hero-cta-anim">
-                    <a href="#obras" class="btn-brut-light font-mono text-[10px] ls-tech text-copper px-8 md:px-10 py-3.5 md:py-4 inline-block relative z-10">
-                        ADENTRARSE EN EL VÓRTICE
-                    </a>
+                <div class="hero-cta-a">
+                    <a href="#obras" class="btn-hero font-mono text-[10px] ls-tech text-copper px-8 md:px-10 py-3.5 md:py-4 inline-block relative z-10">ADENTRARSE EN EL VÓRTICE</a>
                 </div>
             </div>
         </div>
 
-        <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 hero-cta-anim flex flex-col items-center gap-2">
-            <span class="font-mono text-[8px] ls-tech text-white/30">SCROLL</span>
-            <div class="w-px h-7 bg-gradient-to-b from-copper/50 to-transparent"></div>
+        <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 hero-cta-a flex flex-col items-center gap-2">
+            <span class="font-mono text-[8px] ls-tech text-white/25">SCROLL</span>
+            <div class="w-px h-7 bg-gradient-to-b from-copper/40 to-transparent"></div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- LA CREADORA & EL TALLER                      -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section id="atelier" class="relative py-24 md:py-40 overflow-hidden bg-gallery">
-        <svg class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] opacity-[0.04]" viewBox="0 0 400 400">
-            <g class="spin-slow-rev">
-                <circle cx="200" cy="200" r="180" fill="none" stroke="#D0CBC4" stroke-width="0.6"/>
-                <circle cx="200" cy="200" r="120" fill="none" stroke="#D0CBC4" stroke-width="0.3" stroke-dasharray="2 6"/>
+    <!-- ══════════════════════════════════════ -->
+    <!-- NOSOTROS — La Creadora                  -->
+    <!-- ══════════════════════════════════════ -->
+    <section id="nosotros" class="relative py-24 md:py-40 bg-gallery overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+            <div class="rv mb-14 md:mb-20">
+                <span class="ref-label">ref. 002 — la creadora</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6">
+                <!-- Left: Photos -->
+                <div class="lg:col-span-6 order-1">
+                    <!-- Main diptych: working + sketching -->
+                    <div class="rv">
+                        <div class="about-img">
+                            <img src="public/nosotros/lina-02.png" alt="Lina María Ortiz Quimbay trabajando con alicates y bocetando en su taller" class="w-full aspect-[16/9] object-cover" loading="lazy">
+                        </div>
+                    </div>
+                    <!-- Two verticals below -->
+                    <div class="grid grid-cols-2 gap-4 mt-4">
+                        <div class="rv rv-d1">
+                            <div class="about-img frame-corner p-1.5">
+                                <img src="public/nosotros/lina-03.png" alt="Lina con alicates creando pieza de joyería escultórica" class="w-full aspect-[3/4] object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="rv rv-d2">
+                            <div class="about-img frame-corner p-1.5">
+                                <img src="public/nosotros/lina-04.png" alt="Lina bocetando diseños de anillos a lápiz" class="w-full aspect-[3/4] object-cover" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Bio -->
+                <div class="lg:col-span-5 lg:col-start-8 order-2 flex flex-col justify-center">
+                    <div class="rv">
+                        <!-- Portrait -->
+                        <div class="about-img w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden mb-8 border border-chalk">
+                            <img src="public/nosotros/lina-01.png" alt="Lina María Ortiz Quimbay — retrato artístico" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <h3 class="font-display text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.08] text-ink">
+                            Lina María<br>
+                            <span class="italic text-copper">Ortiz Quimbay</span>
+                        </h3>
+                        <span class="font-mono text-[9px] ls-tech text-fossil mt-3 block">CREADORA VÓRTICE</span>
+                    </div>
+
+                    <div class="rv rv-d1 mt-6">
+                        <div class="grid-line w-full mb-6"></div>
+                        <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate mb-5">
+                            Diseñadora de modas, especialista en intervención creativa y magíster en neuropsicología y educación. Académica y creadora, encontró en Vórtice un espacio de <em class="not-italic text-ink font-medium">meditación activa y sanación estética</em>, donde el acto de crear se convierte en terapia.
+                        </p>
+                        <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate mb-5">
+                            Convencida del poder transformador de la mente y de la energía que habita en cada ser, Lina toma como inspiración la teoría del caos para explorar la belleza de la transformación.
+                        </p>
+                        <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate">
+                            Así, entre el pensamiento y la materia, surge <span class="text-ink font-medium">VÓRTICE</span>: una resignificación del caos a través de la artesanía, donde la exploración de los materiales se convierte en lenguaje y da forma a piezas únicas que visten la mano con intención y energía.
+                        </p>
+                    </div>
+
+                    <div class="rv rv-d2 mt-8">
+                        <div class="grid-line w-full mb-5"></div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-1.5 h-1.5 bg-copper"></div>
+                            <span class="font-mono text-[9px] ls-tech text-copper">HECHO A MANO EN MEDELLÍN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- CITA — Dark Band                       -->
+    <!-- ══════════════════════════════════════ -->
+    <section class="relative py-24 md:py-32 bg-abyss overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.06]">
+            <img src="public/1000622466.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
+        </div>
+        <div class="relative z-10 max-w-screen-lg mx-auto px-5 md:px-10 text-center">
+            <div class="rv">
+                <span class="font-mono text-[9px] ls-tech text-copper/40 uppercase block mb-8">ref. 003 — manifiesto</span>
+                <blockquote class="font-display italic font-normal text-[clamp(1.3rem,3.8vw,3rem)] leading-[1.3] text-white/85">
+                    &ldquo;Cada anillo Vórtice es un talismán, una pequeña maquinaria de energía que sincroniza el alma con el movimiento del mundo.&rdquo;
+                </blockquote>
+            </div>
+            <div class="rv rv-d1 mt-7">
+                <span class="font-mono text-[9px] ls-tech text-copper/50">&mdash; LINA MARÍA ORTIZ QUIMBAY</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- EL ATELIER — Proceso                   -->
+    <!-- ══════════════════════════════════════ -->
+    <section id="atelier" class="relative py-24 md:py-40 bg-gallery overflow-hidden">
+        <svg class="absolute right-0 top-1/2 -translate-y-1/2 w-[350px] h-[350px] opacity-[0.035]" viewBox="0 0 400 400">
+            <g class="spin-sr">
+                <circle cx="200" cy="200" r="180" fill="none" stroke="#CEC9C2" stroke-width=".6"/>
+                <circle cx="200" cy="200" r="120" fill="none" stroke="#CEC9C2" stroke-width=".3" stroke-dasharray="2 6"/>
             </g>
         </svg>
 
-        <div class="max-w-[1440px] mx-auto px-5 md:px-10">
+        <div class="max-w-[1400px] mx-auto px-5 md:px-10">
             <div class="rv mb-14 md:mb-20">
-                <span class="ref-label">ref. 002 — el atelier</span>
+                <span class="ref-label">ref. 004 — el atelier</span>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4">
-                <!-- Images -->
                 <div class="lg:col-span-7 order-1 space-y-4">
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="rv frame-corner p-2">
+                        <div class="rv frame-corner p-1.5">
                             <div class="overflow-hidden">
                                 <img src="public/1000622152.jpg" alt="Anillo con calibrador y sierra en mesa de taller" class="w-full aspect-[3/4] object-cover" loading="lazy">
                             </div>
                         </div>
-                        <div class="rv rv-d1 frame-corner p-2 mt-8 lg:mt-16">
+                        <div class="rv rv-d1 frame-corner p-1.5 mt-8 lg:mt-14">
                             <div class="overflow-hidden">
-                                <img src="public/1000622351.jpg" alt="Anillo bajo prensa industrial de precisión" class="w-full aspect-[3/4] object-cover" loading="lazy">
+                                <img src="public/1000622351.jpg" alt="Anillo bajo prensa industrial" class="w-full aspect-[3/4] object-cover" loading="lazy">
                             </div>
                         </div>
                     </div>
-                    <div class="rv rv-d2 frame-corner p-2">
+                    <div class="rv rv-d2 frame-corner p-1.5">
                         <div class="overflow-hidden">
-                            <img src="public/1000622158.jpg" alt="Anillo de engranajes en prensa de banco industrial" class="w-full aspect-[16/9] object-cover object-center" loading="lazy">
+                            <img src="public/1000622158.jpg" alt="Anillo de engranajes en prensa industrial" class="w-full aspect-[16/9] object-cover object-center" loading="lazy">
                         </div>
                     </div>
                 </div>
 
-                <!-- Text -->
                 <div class="lg:col-span-4 lg:col-start-9 order-2 flex flex-col justify-center">
                     <div class="rv">
-                        <h3 class="font-display text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.1] text-ink mb-3">
-                            La Alquimista<br>
-                            <span class="italic text-copper">&amp; Su Taller</span>
+                        <h3 class="font-display text-[clamp(1.8rem,3.5vw,3rem)] font-medium leading-[1.08] text-ink mb-3">
+                            El Proceso<br><span class="italic text-copper">Artesanal</span>
                         </h3>
                     </div>
                     <div class="rv rv-d1 mt-4">
-                        <div class="grid-line-h w-full mb-6"></div>
+                        <div class="grid-line w-full mb-6"></div>
                         <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate mb-5">
-                            La artesanía no es nostalgia, es innovación. Un diálogo íntimo y brutal entre mis manos, las herramientas de taller y la materia viva.
+                            La artesanía no es nostalgia, es innovación. Un diálogo íntimo y brutal entre las manos, las herramientas de taller y la materia viva.
                         </p>
-                        <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate mb-6">
-                            Aquí, el caos industrial se resignifica para forjar el alma de cada pieza. Engranajes que alguna vez movieron maquinaria pesada ahora adornan nudillos. Tornillos que sostenían puentes ahora sostienen perlas.
+                        <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate">
+                            Engranajes que alguna vez movieron maquinaria pesada ahora adornan nudillos. Tornillos que sostenían puentes ahora sostienen perlas. El caos industrial se resignifica para forjar el alma de cada pieza.
                         </p>
                     </div>
-                    <div class="rv rv-d2">
-                        <div class="grid-line-h w-full mb-5"></div>
+                    <div class="rv rv-d2 mt-8">
+                        <div class="grid-line w-full mb-5"></div>
                         <div class="flex items-center gap-3">
                             <div class="w-1.5 h-1.5 bg-copper"></div>
                             <span class="font-mono text-[9px] ls-tech text-copper">MEDELLÍN, COLOMBIA</span>
@@ -468,39 +377,15 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- CITA — Dark Band (contraste dramático)       -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="relative py-24 md:py-36 overflow-hidden bg-abyss">
-        <div class="absolute inset-0 opacity-[0.07]">
-            <img src="public/1000622466.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
-        </div>
-        <div class="relative z-10 max-w-screen-lg mx-auto px-5 md:px-10 text-center">
-            <div class="rv">
-                <span class="font-mono text-[9px] ls-tech text-copper/50 uppercase block mb-8">ref. 003 — manifiesto</span>
-                <blockquote class="font-display italic font-normal text-[clamp(1.4rem,4vw,3.2rem)] leading-[1.25] text-white/85">
-                    &ldquo;En la mano, el arte se vuelve<br class="hidden md:block">
-                    extensión del alma: un gesto,<br class="hidden md:block">
-                    un anillo, una historia.&rdquo;
-                </blockquote>
-            </div>
-            <div class="rv rv-d1 mt-7">
-                <span class="font-mono text-[9px] ls-tech text-copper/60">&mdash; MANIFIESTO VÓRTICE, 2026</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- PILARES / MANIFIESTO                         -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section id="manifiesto" class="relative py-24 md:py-40 bg-gallery">
-        <div class="max-w-[1440px] mx-auto px-5 md:px-10">
+    <!-- ══════════════════════════════════════ -->
+    <!-- PILARES / MANIFIESTO                   -->
+    <!-- ══════════════════════════════════════ -->
+    <section id="manifiesto" class="relative py-24 md:py-40 bg-plaster">
+        <div class="max-w-[1400px] mx-auto px-5 md:px-10">
             <div class="rv mb-14 md:mb-20 flex flex-col md:flex-row md:items-end md:justify-between">
                 <div>
-                    <span class="ref-label block mb-3">ref. 004 — pilares</span>
-                    <h3 class="font-display text-[clamp(1.8rem,4vw,3.5rem)] font-medium text-ink leading-[1]">
-                        Tres Verdades
-                    </h3>
+                    <span class="ref-label block mb-3">ref. 005 — pilares</span>
+                    <h3 class="font-display text-[clamp(1.8rem,4vw,3.5rem)] font-medium text-ink leading-[1]">Tres Verdades</h3>
                 </div>
                 <p class="font-body text-[12px] leading-[1.7] text-fossil max-w-xs mt-4 md:mt-0">
                     Los principios que gobiernan cada pieza forjada en el Vórtice.
@@ -508,300 +393,229 @@
             </div>
 
             <div>
-                <!-- Item 1 -->
-                <div class="acc-item open rv rv-d1 border-t border-chalk">
+                <div class="acc-item open rv rv-d1 border-t border-stone/40">
                     <button class="acc-trigger w-full py-7 md:py-9 flex items-center justify-between text-left group" aria-expanded="true">
                         <div class="flex items-center gap-4 md:gap-7">
-                            <span class="font-mono text-[10px] ls-tech text-copper/50">REF. 01</span>
-                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors duration-400">VANGUARDIA</span>
+                            <span class="font-mono text-[10px] ls-tech text-copper/45">REF. 01</span>
+                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors">VANGUARDIA</span>
                         </div>
                         <span class="acc-icon font-display text-xl text-copper">+</span>
                     </button>
                     <div class="acc-content">
                         <div class="pb-7 pl-[68px] md:pl-[100px] max-w-lg">
-                            <p class="font-body text-[13px] leading-[1.85] text-slate">
-                                El gesto humano sobre el metal frío. Cada pieza es elaborada completamente a mano, sin moldes, sin producción en serie. Un proceso donde la imperfección controlada se vuelve la firma de autenticidad que ninguna máquina puede replicar.
-                            </p>
+                            <p class="font-body text-[13px] leading-[1.85] text-slate">El gesto humano sobre el metal frío. Cada pieza es elaborada completamente a mano, sin moldes, sin producción en serie. La imperfección controlada es la firma de autenticidad que ninguna máquina puede replicar.</p>
                         </div>
                     </div>
                     <div class="acc-bar h-px bg-copper"></div>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="acc-item rv rv-d2 border-t border-chalk">
+                <div class="acc-item rv rv-d2 border-t border-stone/40">
                     <button class="acc-trigger w-full py-7 md:py-9 flex items-center justify-between text-left group" aria-expanded="false">
                         <div class="flex items-center gap-4 md:gap-7">
-                            <span class="font-mono text-[10px] ls-tech text-copper/50">REF. 02</span>
-                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors duration-400">IDENTIDAD</span>
+                            <span class="font-mono text-[10px] ls-tech text-copper/45">REF. 02</span>
+                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors">IDENTIDAD</span>
                         </div>
                         <span class="acc-icon font-display text-xl text-copper">+</span>
                     </button>
                     <div class="acc-content">
                         <div class="pb-7 pl-[68px] md:pl-[100px] max-w-lg">
-                            <p class="font-body text-[13px] leading-[1.85] text-slate">
-                                Singularidad absoluta. Ningún talismán se repite. Cada obra nace una sola vez, destinada a una sola persona. Tu pieza será tan única como la huella que dejaste al nacer.
-                            </p>
+                            <p class="font-body text-[13px] leading-[1.85] text-slate">Singularidad absoluta. Ningún talismán se repite. Cada obra nace una sola vez, destinada a una sola persona. Tu pieza será tan única como la huella que dejaste al nacer.</p>
                         </div>
                     </div>
                     <div class="acc-bar h-px bg-copper"></div>
                 </div>
 
-                <!-- Item 3 -->
-                <div class="acc-item rv rv-d3 border-t border-chalk">
+                <div class="acc-item rv rv-d3 border-t border-stone/40">
                     <button class="acc-trigger w-full py-7 md:py-9 flex items-center justify-between text-left group" aria-expanded="false">
                         <div class="flex items-center gap-4 md:gap-7">
-                            <span class="font-mono text-[10px] ls-tech text-copper/50">REF. 03</span>
-                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors duration-400">CIRCULARIDAD</span>
+                            <span class="font-mono text-[10px] ls-tech text-copper/45">REF. 03</span>
+                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors">CIRCULARIDAD</span>
                         </div>
                         <span class="acc-icon font-display text-xl text-copper">+</span>
                     </button>
                     <div class="acc-content">
                         <div class="pb-7 pl-[68px] md:pl-[100px] max-w-lg">
-                            <p class="font-body text-[13px] leading-[1.85] text-slate">
-                                Tuercas, tornillos y engranajes que renacen. Lo que otros descartan, nosotros lo alquimizamos en arte. Metales reciclados, mecanismos rescatados: la sostenibilidad es nuestra materia prima.
-                            </p>
+                            <p class="font-body text-[13px] leading-[1.85] text-slate">Tuercas, tornillos y engranajes que renacen. Lo que otros descartan, nosotros lo alquimizamos en arte. Metales reciclados, mecanismos rescatados: la sostenibilidad es nuestra materia prima.</p>
                         </div>
                     </div>
                     <div class="acc-bar h-px bg-copper"></div>
                 </div>
 
-                <div class="border-t border-chalk"></div>
+                <div class="border-t border-stone/40"></div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- INTERMEDIO — Pieza Destacada (full bleed)    -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="relative py-16 md:py-20 bg-plaster">
-        <div class="max-w-[1440px] mx-auto px-5 md:px-10">
-            <div class="rv">
-                <div class="relative overflow-hidden" style="height: clamp(280px, 45vw, 520px);">
-                    <img
-                        src="public/1000622458.jpg"
-                        alt="Dos anillos VÓRTICE exhibidos sobre ladrillo con resorte industrial"
-                        class="w-full h-full object-cover plx"
-                        loading="lazy"
-                        id="midBg"
-                    >
-                    <div class="absolute inset-0 bg-gradient-to-r from-abyss/70 via-abyss/20 to-transparent"></div>
-                    <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10">
-                        <span class="font-mono text-[9px] ls-tech text-copper block mb-2">COLECCIÓN ACTUAL</span>
-                        <h4 class="font-display text-[clamp(1.5rem,3vw,2.5rem)] font-medium text-white italic">Dualidad Mecánica</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- PORTAFOLIO — Archivo de Obras                -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════ -->
+    <!-- PORTAFOLIO — Archivo de Obras          -->
+    <!-- ══════════════════════════════════════ -->
     <section id="obras" class="relative py-24 md:py-40 bg-gallery">
         <div class="relative z-10 max-w-[1200px] mx-auto px-5 md:px-10">
-            <!-- Header -->
             <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-14 md:mb-24">
                 <div class="rv">
-                    <span class="ref-label block mb-3">ref. 005 — archivo</span>
-                    <h3 class="font-display text-[clamp(2rem,5vw,4.5rem)] font-medium text-ink leading-[0.95]">
-                        OBRAS<br>DISPONIBLES
-                    </h3>
+                    <span class="ref-label block mb-3">ref. 006 — archivo</span>
+                    <h3 class="font-display text-[clamp(2rem,5vw,4.5rem)] font-medium text-ink leading-[.95]">OBRAS<br>DISPONIBLES</h3>
                 </div>
                 <div class="rv rv-d1 mt-5 md:mt-0">
-                    <p class="font-mono text-[10px] ls-tech text-fossil max-w-[260px]">
-                        CADA PIEZA ES ÚNICA.<br>NINGÚN DISEÑO SE REPITE.
-                    </p>
+                    <p class="font-mono text-[10px] ls-tech text-fossil max-w-[260px]">CADA PIEZA ES ÚNICA.<br>NINGÚN DISEÑO SE REPITE.</p>
                 </div>
             </div>
 
-            <!-- Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-7">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-6">
 
-                <!-- PIEZA 1 — dark bg photo: POP dramático -->
                 <div class="piece-card group rv bg-canvas">
                     <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622166.jpg" alt="Caos Primigenio — anillo sobre asfalto" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-600 flex items-end p-5">
+                        <img src="public/1000622166.jpg" alt="Caos Primigenio" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
-                        <h4 class="font-display text-lg text-ink font-medium">Caos Primigenio</h4>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="font-mono text-[9px] ls-tech text-fossil">MAT: ACERO + COBRE + ENGRANAJES</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 480.000 <span class="text-fossil text-[9px]">COP</span></span>
+                        <h4 class="font-display text-[17px] text-ink font-medium">Caos Primigenio</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: ACERO + COBRE + ENGRANAJES</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 480.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- PIEZA 2 — warm workshop bg -->
                 <div class="piece-card group rv rv-d1 bg-canvas">
                     <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622354.jpg" alt="Alma Violeta — anillo con acrílico y perlas" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-600 flex items-end p-5">
+                        <img src="public/1000622354.jpg" alt="Alma Violeta" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
-                        <h4 class="font-display text-lg text-ink font-medium">Alma Violeta</h4>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="font-mono text-[9px] ls-tech text-fossil">MAT: PLATA + ACRÍLICO + PERLA</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 520.000 <span class="text-fossil text-[9px]">COP</span></span>
+                        <h4 class="font-display text-[17px] text-ink font-medium">Alma Violeta</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: PLATA + ACRÍLICO + PERLA</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 520.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- PIEZA 3 — white bg: integra naturalmente -->
                 <div class="piece-card group rv rv-d2 bg-canvas">
                     <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622452.jpg" alt="Rosa Industrial — anillo sobre ladrillo" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-600 flex items-end p-5">
+                        <img src="public/1000622452.jpg" alt="Rosa Industrial" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
-                        <h4 class="font-display text-lg text-ink font-medium">Rosa Industrial</h4>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="font-mono text-[9px] ls-tech text-fossil">MAT: COBRE + CAUCHO + CUENTA</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 350.000 <span class="text-fossil text-[9px]">COP</span></span>
+                        <h4 class="font-display text-[17px] text-ink font-medium">Rosa Industrial</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: COBRE + CAUCHO + CUENTA</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 350.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- PIEZA 4 — warm bg with macro gear -->
                 <div class="piece-card group rv bg-canvas">
                     <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622455.jpg" alt="Engranaje Celeste — anillo dentro de engranaje" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-600 flex items-end p-5">
+                        <img src="public/1000622455.jpg" alt="Engranaje Celeste" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
-                        <h4 class="font-display text-lg text-ink font-medium">Engranaje Celeste</h4>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="font-mono text-[9px] ls-tech text-fossil">MAT: BRONCE + ACERO + CAUCHO</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 620.000 <span class="text-fossil text-[9px]">COP</span></span>
+                        <h4 class="font-display text-[17px] text-ink font-medium">Engranaje Celeste</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: BRONCE + ACERO + CAUCHO</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 620.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- PIEZA 5 — light bg: perfect match -->
                 <div class="piece-card group rv rv-d1 bg-canvas">
                     <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622456.jpg" alt="Órbita Turquesa — anillo con turquesa" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-600 flex items-end p-5">
+                        <img src="public/1000622456.jpg" alt="Órbita Turquesa" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
-                        <h4 class="font-display text-lg text-ink font-medium">Órbita Turquesa</h4>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="font-mono text-[9px] ls-tech text-fossil">MAT: ACERO + TURQUESA + ENGRANAJE</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 390.000 <span class="text-fossil text-[9px]">COP</span></span>
+                        <h4 class="font-display text-[17px] text-ink font-medium">Órbita Turquesa</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: ACERO + TURQUESA + ENGRANAJE</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 390.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- PIEZA 6 — light bg: clean match -->
                 <div class="piece-card group rv rv-d2 bg-canvas">
                     <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622467.jpg" alt="Mecanismo Áureo — engranajes dorados" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-600 flex items-end p-5">
+                        <img src="public/1000622467.jpg" alt="Mecanismo Áureo" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
-                        <h4 class="font-display text-lg text-ink font-medium">Mecanismo Áureo</h4>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="font-mono text-[9px] ls-tech text-fossil">MAT: ORO VIEJO + PERLA + CAUCHO</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 890.000 <span class="text-fossil text-[9px]">COP</span></span>
+                        <h4 class="font-display text-[17px] text-ink font-medium">Mecanismo Áureo</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: ORO VIEJO + PERLA + CAUCHO</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 890.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Featured row -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7 mt-5 md:mt-7">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mt-5 md:mt-6">
                 <div class="piece-card group rv bg-canvas">
                     <div class="kb-wrap aspect-[4/3] relative">
-                        <img src="public/1000622466.jpg" alt="Alquimia Violeta — close-up artístico" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-600 flex items-end p-5">
+                        <img src="public/1000622469.jpg" alt="Vórtice Dorado" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
-                        <h4 class="font-display text-lg text-ink font-medium">Alquimia Violeta</h4>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="font-mono text-[9px] ls-tech text-fossil">MAT: PLATA + ACRÍLICO + LATÓN + PERLA</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 680.000 <span class="text-fossil text-[9px]">COP</span></span>
+                        <h4 class="font-display text-[17px] text-ink font-medium">Vórtice Dorado</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: LATÓN + ENGRANAJE + PERLA + CAUCHO</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 750.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="piece-card group rv rv-d1 bg-canvas">
                     <div class="kb-wrap aspect-[4/3] relative">
-                        <img src="public/1000622469.jpg" alt="Vórtice Dorado — vista cenital" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-600 flex items-end p-5">
+                        <img src="public/1000622161.jpg" alt="Materia Bruta" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
-                        <h4 class="font-display text-lg text-ink font-medium">Vórtice Dorado</h4>
-                        <div class="flex items-center justify-between mt-2">
-                            <span class="font-mono text-[9px] ls-tech text-fossil">MAT: LATÓN + ENGRANAJE + PERLA + CAUCHO</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 750.000 <span class="text-fossil text-[9px]">COP</span></span>
+                        <h4 class="font-display text-[17px] text-ink font-medium">Materia Bruta</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: ACERO + TURQUESA + MINERAL + PERLA</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 560.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CTA -->
             <div class="text-center mt-14 md:mt-24 rv">
-                <div class="grid-line-h w-32 mx-auto mb-8"></div>
+                <div class="grid-line w-32 mx-auto mb-8"></div>
                 <p class="font-mono text-[10px] ls-tech text-fossil mb-6">VENTA CONSULTIVA — PIEZAS ÚNICAS — ENVÍO NACIONAL</p>
-                <a href="#contacto" class="btn-brut font-mono text-[10px] ls-tech text-ink px-10 py-4 inline-block relative z-10">
-                    CONTACTAR PARA ADQUIRIR
-                </a>
+                <a href="#contacto" class="btn-ink font-mono text-[10px] ls-tech text-ink px-10 py-4 inline-block relative z-10">CONTACTAR PARA ADQUIRIR</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- MATERIALES                                   -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section class="relative py-16 md:py-20 bg-plaster">
-        <div class="max-w-[1440px] mx-auto px-5 md:px-10">
-            <div class="rv">
-                <div class="relative overflow-hidden" style="height: clamp(200px, 35vw, 400px);">
-                    <img src="public/1000622161.jpg" alt="Minerales brutos y anillo VÓRTICE" class="w-full h-full object-cover object-center plx" loading="lazy" id="matBg">
-                    <div class="absolute inset-0 bg-gradient-to-l from-plaster/70 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-5 right-5 md:bottom-8 md:right-8 text-right">
-                        <span class="ref-label block mb-1">materia prima</span>
-                        <h4 class="font-display text-[clamp(1.2rem,2.5vw,2rem)] font-medium text-ink">Minerales. Caos. Perlas.</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- CONTACTO                                     -->
-    <!-- ═══════════════════════════════════════════ -->
-    <section id="contacto" class="relative py-24 md:py-40 overflow-hidden bg-gallery">
-        <div class="divider-anim w-full absolute top-0"></div>
-
-        <svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-[0.04]" viewBox="0 0 500 500">
-            <g class="spin-slow">
-                <ellipse cx="250" cy="250" rx="220" ry="220" fill="none" stroke="#D0CBC4" stroke-width="0.4" stroke-dasharray="2 8"/>
-                <ellipse cx="250" cy="250" rx="160" ry="90" fill="none" stroke="#D0CBC4" stroke-width="0.3" stroke-dasharray="3 6" transform="rotate(40 250 250)"/>
-            </g>
+    <!-- ══════════════════════════════════════ -->
+    <!-- CONTACTO                               -->
+    <!-- ══════════════════════════════════════ -->
+    <section id="contacto" class="relative py-24 md:py-40 bg-plaster overflow-hidden">
+        <div class="divider-a w-full absolute top-0"></div>
+        <svg class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] opacity-[0.035]" viewBox="0 0 500 500">
+            <g class="spin-s"><ellipse cx="250" cy="250" rx="220" ry="220" fill="none" stroke="#CEC9C2" stroke-width=".4" stroke-dasharray="2 8"/></g>
         </svg>
-
         <div class="relative z-10 max-w-screen-md mx-auto px-5 md:px-10 text-center">
             <div class="rv">
-                <span class="ref-label block mb-5">ref. 006 — contacto</span>
+                <span class="ref-label block mb-5">ref. 007 — contacto</span>
                 <h3 class="font-display text-[clamp(1.8rem,4.5vw,3.5rem)] font-medium text-ink leading-[1.1] mb-5">
-                    Tu Talismán Te Está<br><span class="italic text-copper">Esperando</span>
+                    Tu Talismán<br>Te Está <span class="italic text-copper">Esperando</span>
                 </h3>
             </div>
             <div class="rv rv-d1">
@@ -810,186 +624,74 @@
                 </p>
             </div>
             <div class="rv rv-d2 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#" class="btn-brut font-mono text-[10px] ls-tech text-ink px-8 py-4 inline-flex items-center gap-3 relative z-10">
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
+                <a href="#" class="btn-ink font-mono text-[10px] ls-tech text-ink px-8 py-4 inline-flex items-center gap-3 relative z-10">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     ESCRIBIR POR WHATSAPP
                 </a>
-                <a href="mailto:hola@vortice.co" class="font-mono text-[10px] ls-tech text-fossil hover:text-ink transition-colors duration-400 px-5 py-4">
-                    hola@vortice.co
-                </a>
+                <a href="mailto:hola@vortice.co" class="font-mono text-[10px] ls-tech text-fossil hover:text-ink transition-colors px-5 py-4">hola@vortice.co</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- FOOTER                                       -->
-    <!-- ═══════════════════════════════════════════ -->
-    <footer class="relative bg-abyss">
-        <div class="max-w-[1440px] mx-auto px-5 md:px-10 py-10 md:py-14">
+    <!-- ══════════════════════════════════════ -->
+    <!-- FOOTER                                 -->
+    <!-- ══════════════════════════════════════ -->
+    <footer class="bg-abyss">
+        <div class="max-w-[1400px] mx-auto px-5 md:px-10 py-10 md:py-14">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 items-center">
                 <div class="flex items-center gap-7 justify-center md:justify-start">
-                    <a href="#" class="font-mono text-[9px] ls-tech text-white/30 hover:text-copper transition-colors duration-400">INSTAGRAM</a>
-                    <a href="#" class="font-mono text-[9px] ls-tech text-white/30 hover:text-copper transition-colors duration-400">TIKTOK</a>
+                    <a href="#" class="font-mono text-[9px] ls-tech text-white/25 hover:text-copper transition-colors">INSTAGRAM</a>
+                    <a href="#" class="font-mono text-[9px] ls-tech text-white/25 hover:text-copper transition-colors">TIKTOK</a>
                 </div>
                 <div class="text-center">
-                    <span class="font-display text-lg font-medium tracking-[0.12em] block mb-2">
-                        <span class="text-white/80">V</span><span class="text-copper">Ó</span><span class="text-white/80">RTICE</span>
-                    </span>
-                    <p class="font-mono text-[8px] ls-tech text-white/20">
-                        &copy; SOMOS VÓRTICE. TODOS LOS DERECHOS RESERVADOS 2026.
-                    </p>
+                    <span class="font-display text-lg font-medium tracking-[.12em] block mb-2"><span class="text-white/75">V</span><span class="text-copper">Ó</span><span class="text-white/75">RTICE</span></span>
+                    <p class="font-mono text-[8px] ls-tech text-white/15">&copy; SOMOS VÓRTICE. TODOS LOS DERECHOS RESERVADOS 2026.</p>
                 </div>
                 <div class="text-center md:text-right">
-                    <span class="font-mono text-[9px] ls-tech text-copper/50 block">
-                        [ FORJADO Y ENSAMBLADO EN MEDELLÍN, COLOMBIA ]
-                    </span>
-                    <span class="font-mono text-[8px] ls-tech text-white/15 mt-1 block">
-                        JOYERÍA ESCULTÓRICA DE AUTOR
-                    </span>
+                    <span class="font-mono text-[9px] ls-tech text-copper/40 block">[ FORJADO EN MEDELLÍN, COLOMBIA ]</span>
+                    <span class="font-mono text-[8px] ls-tech text-white/12 mt-1 block">JOYERÍA ESCULTÓRICA DE AUTOR</span>
                 </div>
             </div>
         </div>
-        <div class="border-t border-white/[0.05] py-3">
-            <p class="font-mono text-[7px] ls-tech text-white/10 text-center">
-                TODAS LAS PIEZAS SON OBRAS DE ARTE ÚNICAS E IRREPETIBLES.
-            </p>
-        </div>
     </footer>
 
-    <!-- ═══════════════════════════════════════════ -->
-    <!-- JAVASCRIPT                                   -->
-    <!-- ═══════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════ -->
+    <!-- JS                                     -->
+    <!-- ══════════════════════════════════════ -->
     <script>
-    (function() {
+    (function(){
         'use strict';
 
-        // ── Cursor Glow ──
-        const glow = document.getElementById('cursorGlow');
-        if (glow && window.innerWidth > 1024) {
-            let mx = 0, my = 0, gx = 0, gy = 0;
-            document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-            (function loop() {
-                gx += (mx - gx) * 0.07;
-                gy += (my - gy) * 0.07;
-                glow.style.left = gx + 'px';
-                glow.style.top = gy + 'px';
-                requestAnimationFrame(loop);
-            })();
-        }
+        const glow=document.getElementById('cursorGlow');
+        if(glow&&innerWidth>1024){let mx=0,my=0,gx=0,gy=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});(function l(){gx+=(mx-gx)*.07;gy+=(my-gy)*.07;glow.style.left=gx+'px';glow.style.top=gy+'px';requestAnimationFrame(l)})()}
 
-        // ── Header: shift colors when leaving hero ──
-        const hdr = document.getElementById('hdr');
-        const heroH = window.innerHeight;
+        const hdr=document.getElementById('hdr');
+        const heroH=innerHeight;
+        function ckHdr(){hdr.classList.toggle('scrolled',scrollY>heroH*.82)}
 
-        function checkHeader() {
-            const sy = window.scrollY;
-            if (sy > heroH * 0.85) {
-                hdr.classList.add('scrolled');
-            } else {
-                hdr.classList.remove('scrolled');
-            }
-        }
+        const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.rv,.divider-a').forEach(el=>obs.observe(el));
 
-        // ── Scroll Reveal ──
-        const revealEls = document.querySelectorAll('.rv, .divider-anim');
-        const obs = new IntersectionObserver(entries => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-        }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-        revealEls.forEach(el => obs.observe(el));
+        const midBg=document.getElementById('midBg'),matBg=document.getElementById('matBg');
+        function plx(){[midBg,matBg].forEach(el=>{if(el){const r=el.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)el.style.transform='translateY('+(-(r.top*.06))+'px)'}})}
 
-        // ── Parallax ──
-        const heroBg = document.getElementById('heroBg');
-        const midBg = document.getElementById('midBg');
-        const matBg = document.getElementById('matBg');
+        let t=false;
+        addEventListener('scroll',()=>{if(!t){requestAnimationFrame(()=>{ckHdr();plx();t=false});t=true}},{passive:true});
 
-        function handleParallax() {
-            if (heroBg) {
-                const r = heroBg.getBoundingClientRect();
-                heroBg.style.transform = 'translateY(' + (-(r.top * 0.12)) + 'px)';
-            }
-            [midBg, matBg].forEach(el => {
-                if (el) {
-                    const r = el.getBoundingClientRect();
-                    if (r.bottom > 0 && r.top < window.innerHeight) {
-                        el.style.transform = 'translateY(' + (-(r.top * 0.08)) + 'px)';
-                    }
-                }
-            });
-        }
-
-        // ── Scroll ──
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(() => { checkHeader(); handleParallax(); ticking = false; });
-                ticking = true;
-            }
-        }, { passive: true });
-
-        // ── Mobile Menu ──
-        const mobBtn = document.getElementById('mobBtn');
-        const mobMenu = document.getElementById('mobMenu');
-        const ml1 = document.getElementById('ml1');
-        const ml2 = document.getElementById('ml2');
-        const mobLinks = document.querySelectorAll('.mob-link');
-        let menuOpen = false;
-
-        mobBtn.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            mobMenu.classList.toggle('open');
-            if (menuOpen) {
-                ml1.style.transform = 'rotate(45deg) translateY(4px)';
-                ml1.style.background = '#1A1918';
-                ml2.style.transform = 'rotate(-45deg) translateY(-3px)';
-                ml2.style.width = '24px';
-                ml2.style.background = '#1A1918';
-                document.body.style.overflow = 'hidden';
-            } else {
-                ml1.style.transform = '';
-                ml1.style.background = '';
-                ml2.style.transform = '';
-                ml2.style.width = '';
-                ml2.style.background = '';
-                document.body.style.overflow = '';
-            }
+        const mobBtn=document.getElementById('mobBtn'),mobMenu=document.getElementById('mobMenu'),ml1=document.getElementById('ml1'),ml2=document.getElementById('ml2');
+        let mo=false;
+        mobBtn.addEventListener('click',()=>{
+            mo=!mo;mobMenu.classList.toggle('open');
+            if(mo){ml1.style.transform='rotate(45deg) translateY(4px)';ml1.style.background='#1A1918';ml2.style.transform='rotate(-45deg) translateY(-3px)';ml2.style.width='24px';ml2.style.background='#1A1918';document.body.style.overflow='hidden'}
+            else{ml1.style.transform='';ml1.style.background='';ml2.style.transform='';ml2.style.width='';ml2.style.background='';document.body.style.overflow=''}
         });
+        document.querySelectorAll('.mob-link').forEach(l=>l.addEventListener('click',()=>{mo=false;mobMenu.classList.remove('open');ml1.style.transform='';ml1.style.background='';ml2.style.transform='';ml2.style.width='';ml2.style.background='';document.body.style.overflow=''}));
 
-        mobLinks.forEach(l => l.addEventListener('click', () => {
-            menuOpen = false;
-            mobMenu.classList.remove('open');
-            ml1.style.transform = ''; ml1.style.background = '';
-            ml2.style.transform = ''; ml2.style.width = ''; ml2.style.background = '';
-            document.body.style.overflow = '';
-        }));
+        document.querySelectorAll('.acc-item').forEach(it=>{it.querySelector('.acc-trigger').addEventListener('click',()=>{const w=it.classList.contains('open');document.querySelectorAll('.acc-item').forEach(i=>{i.classList.remove('open');i.querySelector('.acc-trigger').setAttribute('aria-expanded','false')});if(!w){it.classList.add('open');it.querySelector('.acc-trigger').setAttribute('aria-expanded','true')}})});
 
-        // ── Accordion ──
-        document.querySelectorAll('.acc-item').forEach(item => {
-            item.querySelector('.acc-trigger').addEventListener('click', () => {
-                const wasOpen = item.classList.contains('open');
-                document.querySelectorAll('.acc-item').forEach(i => {
-                    i.classList.remove('open');
-                    i.querySelector('.acc-trigger').setAttribute('aria-expanded', 'false');
-                });
-                if (!wasOpen) {
-                    item.classList.add('open');
-                    item.querySelector('.acc-trigger').setAttribute('aria-expanded', 'true');
-                }
-            });
-        });
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)scrollTo({top:t.getBoundingClientRect().top+scrollY-70,behavior:'smooth'})})});
 
-        // ── Smooth anchors ──
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function(e) {
-                e.preventDefault();
-                const t = document.querySelector(this.getAttribute('href'));
-                if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
-            });
-        });
-
-        checkHeader();
-        handleParallax();
+        ckHdr();plx();
     })();
     </script>
 </body>
