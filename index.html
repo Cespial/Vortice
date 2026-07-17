@@ -23,7 +23,8 @@
                         graphite:  '#3D3A37',
                         slate:     '#65615B',
                         fossil:    '#96918A',
-                        copper:    '#B87333',
+                        copper:    '#A6824E',
+                        cafeclaro: '#B99B66',
                         brass:     '#C5A059',
                         oxide:     '#8B5E34',
                         abyss:     '#0C0C0B',
@@ -39,10 +40,10 @@
     </script>
     <style>
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#B87333 #F3F1ED}
+        html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#A6824E #F3F1ED}
         ::-webkit-scrollbar{width:3px}
         ::-webkit-scrollbar-track{background:#F3F1ED}
-        ::-webkit-scrollbar-thumb{background:#B87333}
+        ::-webkit-scrollbar-thumb{background:#A6824E}
 
         body{background:#F3F1ED;color:#1A1918;font-family:'Syne',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
@@ -67,15 +68,15 @@
         .hdr{background:transparent;transition:all .5s cubic-bezier(.16,1,.3,1)}
         .hdr.scrolled{background:rgba(243,241,237,.88);backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2);border-bottom:1px solid rgba(206,201,194,.3)}
         .hdr.scrolled .nav-link{color:#65615B}
-        .hdr.scrolled .nav-link:hover{color:#B87333}
+        .hdr.scrolled .nav-link:hover{color:#A6824E}
         .hdr.scrolled .logo-t{color:#1A1918}
         .hdr.scrolled .menu-line{background:#1A1918}
 
         /* Buttons */
-        .btn-hero{position:relative;overflow:hidden;border:1px solid rgba(184,115,51,.5);background:transparent;transition:color .5s cubic-bezier(.16,1,.3,1),border-color .5s}
-        .btn-hero::before{content:'';position:absolute;inset:0;background:#B87333;transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.16,1,.3,1);z-index:-1}
+        .btn-hero{position:relative;overflow:hidden;border:1px solid rgba(166,130,78,.5);background:transparent;transition:color .5s cubic-bezier(.16,1,.3,1),border-color .5s}
+        .btn-hero::before{content:'';position:absolute;inset:0;background:#A6824E;transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.16,1,.3,1);z-index:-1}
         .btn-hero:hover::before{transform:scaleX(1)}
-        .btn-hero:hover{color:#FAF9F7;border-color:#B87333}
+        .btn-hero:hover{color:#FAF9F7;border-color:#A6824E}
 
         .btn-ink{position:relative;overflow:hidden;border:1px solid #1A1918;background:transparent;transition:color .5s cubic-bezier(.16,1,.3,1)}
         .btn-ink::before{content:'';position:absolute;inset:0;background:#1A1918;transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.16,1,.3,1);z-index:-1}
@@ -100,12 +101,12 @@
         .piece-card:hover{box-shadow:0 12px 48px rgba(26,25,24,.07)}
 
         /* Divider */
-        .divider-a{background:linear-gradient(90deg,transparent,rgba(184,115,51,.25),transparent);height:1px;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+        .divider-a{background:linear-gradient(90deg,transparent,rgba(166,130,78,.25),transparent);height:1px;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
         .divider-a.vis{transform:scaleX(1)}
 
         /* Accordion */
-        .acc-content{max-height:0;overflow:hidden;transition:max-height .7s cubic-bezier(.16,1,.3,1)}
-        .acc-item.open .acc-content{max-height:250px}
+        .acc-content{max-height:0;overflow:hidden;transition:max-height .8s cubic-bezier(.16,1,.3,1)}
+        .acc-item.open .acc-content{max-height:1500px}
         .acc-icon{transition:transform .5s cubic-bezier(.16,1,.3,1)}
         .acc-item.open .acc-icon{transform:rotate(45deg)}
         .acc-bar{transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.16,1,.3,1)}
@@ -125,9 +126,9 @@
         .grid-line{height:1px;background:rgba(206,201,194,.45)}
         .ls-tech{letter-spacing:.3em}
         .ls-wide{letter-spacing:.18em}
-        .ref-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:#B87333;text-transform:uppercase}
+        .ref-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:#A6824E;text-transform:uppercase}
         .frame-corner{position:relative}
-        .frame-corner::before,.frame-corner::after{content:'';position:absolute;width:18px;height:18px;border-color:rgba(184,115,51,.2);border-style:solid}
+        .frame-corner::before,.frame-corner::after{content:'';position:absolute;width:18px;height:18px;border-color:rgba(166,130,78,.2);border-style:solid}
         .frame-corner::before{top:0;left:0;border-width:1px 0 0 1px}
         .frame-corner::after{bottom:0;right:0;border-width:0 1px 1px 0}
 
@@ -135,13 +136,30 @@
         .hero-dark{background:linear-gradient(180deg,rgba(12,12,11,.1) 0%,rgba(12,12,11,.45) 45%,rgba(12,12,11,.88) 82%,#F3F1ED 100%)}
 
         /* Cursor */
-        .cursor-glow{position:fixed;width:280px;height:280px;background:radial-gradient(circle,rgba(184,115,51,.03) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+        .cursor-glow{position:fixed;width:280px;height:280px;background:radial-gradient(circle,rgba(166,130,78,.03) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
 
         /* Nosotros photo hover */
         .about-img{overflow:hidden}
         .about-img img{transition:transform 4s cubic-bezier(.25,.46,.45,.94)}
         .about-img:hover img{transform:scale(1.04)}
+
+        /* Wordmark — tipografía oficial del logo (máscara: toma el color del texto) */
+        .logo-mark{display:inline-block;background-color:currentColor;-webkit-mask:url('public/marca/logo-nombre-blanco.png') no-repeat center/contain;mask:url('public/marca/logo-nombre-blanco.png') no-repeat center/contain}
+        #hdr .logo-t{color:rgba(250,249,247,.92)}
+        #hdr.scrolled .logo-t{color:#1A1918}
+
+        /* Feed filter */
+        .feed-btn{border:1px solid rgba(166,130,78,.3);transition:all .4s cubic-bezier(.16,1,.3,1)}
+        .feed-btn.active{background:#A6824E;color:#FAF9F7;border-color:#A6824E}
+        .feed-btn:not(.active):hover{border-color:#A6824E;color:#A6824E}
+        .feed-tile{position:relative;overflow:hidden;background:#EAE7E2}
+        .feed-tile img{transition:transform 2.5s cubic-bezier(.25,.46,.45,.94)}
+        .feed-tile:hover img{transform:scale(1.07)}
+        .feed-tile .feed-meta{position:absolute;inset:auto 0 0 0;padding:1.5rem .75rem .6rem;background:linear-gradient(to top,rgba(12,12,11,.65),transparent);opacity:0;transform:translateY(8px);transition:all .45s cubic-bezier(.16,1,.3,1);display:flex;justify-content:space-between;align-items:baseline}
+        .feed-tile:hover .feed-meta{opacity:1;transform:translateY(0)}
+        @media(max-width:767px){.feed-tile .feed-meta{opacity:1;transform:none;padding:1.2rem .55rem .45rem}}
     </style>
+    <link rel="icon" type="image/png" href="public/marca/favicon.png">
 </head>
 <body>
 
@@ -156,17 +174,20 @@
                 <span class="menu-line block w-6 h-px bg-white/70 transition-all duration-500" id="ml1"></span>
                 <span class="menu-line block w-3 h-px bg-white/70 transition-all duration-500 ml-auto" id="ml2"></span>
             </button>
-            <div class="hidden md:flex items-center gap-7">
+            <div class="hidden md:flex items-center gap-6">
                 <a href="#nosotros" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ NOSOTROS ]</a>
                 <a href="#manifiesto" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ MANIFIESTO ]</a>
+                <a href="#obras" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ OBRAS ]</a>
             </div>
             <a href="#" class="absolute left-1/2 -translate-x-1/2">
-                <h1 class="font-display text-[22px] md:text-[26px] font-medium tracking-[.12em]">
-                    <span class="logo-t text-white/85">V</span><span class="text-copper">Ó</span><span class="logo-t text-white/85">RTICE</span>
+                <h1 class="logo-t flex items-center transition-colors duration-500">
+                    <span class="logo-mark w-[118px] h-[27px] md:w-[136px] md:h-[31px]"></span>
+                    <span class="sr-only">VÓRTICE</span>
                 </h1>
             </a>
-            <div class="hidden md:flex items-center gap-7">
-                <a href="#obras" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ OBRAS ]</a>
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#tamanos" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ TAMAÑOS ]</a>
+                <a href="#feed" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ FEED ]</a>
                 <a href="#contacto" class="nav-link font-mono text-[10px] ls-tech text-white/40 hover:text-copper transition-colors">[ CONTACTO ]</a>
             </div>
             <div class="w-8 md:hidden"></div>
@@ -175,10 +196,13 @@
 
     <!-- Mobile menu -->
     <div id="mobMenu" class="mob-menu fixed inset-0 z-40 bg-gallery flex items-center justify-center">
-        <nav class="text-center space-y-6">
+        <nav class="text-center space-y-5">
+            <img src="public/marca/isologo-cafe.png" alt="" class="w-12 mx-auto mb-2">
             <a href="#nosotros" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">Nosotros</a>
             <a href="#manifiesto" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">Manifiesto</a>
             <a href="#obras" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">Obras</a>
+            <a href="#tamanos" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">Tamaños</a>
+            <a href="#feed" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">Feed</a>
             <a href="#contacto" class="mob-link block font-display text-3xl font-light text-ink ls-wide hover:text-copper transition-colors">Contacto</a>
         </nav>
     </div>
@@ -197,24 +221,25 @@
         <div class="hero-dark absolute inset-0"></div>
 
         <svg class="absolute inset-0 w-full h-full opacity-[0.03]" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
-            <g class="spin-s"><circle cx="500" cy="500" r="320" fill="none" stroke="#B87333" stroke-width=".4" stroke-dasharray="3 9"/></g>
-            <g class="spin-sr"><ellipse cx="500" cy="500" rx="380" ry="200" fill="none" stroke="#B87333" stroke-width=".25" stroke-dasharray="4 12" transform="rotate(25 500 500)"/></g>
+            <g class="spin-s"><circle cx="500" cy="500" r="320" fill="none" stroke="#A6824E" stroke-width=".4" stroke-dasharray="3 9"/></g>
+            <g class="spin-sr"><ellipse cx="500" cy="500" rx="380" ry="200" fill="none" stroke="#A6824E" stroke-width=".25" stroke-dasharray="4 12" transform="rotate(25 500 500)"/></g>
         </svg>
 
         <div class="relative z-10 w-full max-w-[1400px] mx-auto px-5 md:px-10 pb-16 md:pb-24">
             <div class="max-w-3xl">
-                <div class="hero-sub mb-4">
-                    <span class="font-mono text-[9px] ls-tech text-copper/50 uppercase">ref. 001 — joyería escultórica de autor</span>
+                <div class="hero-sub mb-5">
+                    <img src="public/marca/isologo-cafe.png" alt="Isologo VÓRTICE" class="w-14 md:w-[72px] mb-5 drop-shadow-[0_2px_12px_rgba(0,0,0,.35)]">
+                    <span class="font-mono text-[9px] ls-tech text-cafeclaro/60 uppercase">ref. 001 — joyería escultórica de autor</span>
                 </div>
                 <h2 class="font-display font-medium leading-[.88] mb-6 md:mb-8">
                     <div class="hero-line"><span class="text-[clamp(2.5rem,8vw,7.5rem)] text-white/90">LA ALQUIMIA</span></div>
-                    <div class="hero-line"><span class="text-[clamp(2.5rem,8vw,7.5rem)] text-white/90">DEL <em class="text-copper not-italic font-display italic">CAOS</em></span></div>
+                    <div class="hero-line"><span class="text-[clamp(2.5rem,8vw,7.5rem)] text-white/90">DEL <em class="text-cafeclaro not-italic font-display italic">CAOS</em></span></div>
                 </h2>
                 <p class="hero-sub font-mono text-[11px] md:text-[12px] ls-wide text-white/35 mb-10 md:mb-14 max-w-md">
-                    <span class="text-copper">&gt;_</span> ESCULTURAS MECÁNICAS. ENSAMBLADAS A MANO.
+                    <span class="text-cafeclaro">&gt;_</span> ESCULTURAS MECÁNICAS. ENSAMBLADAS A MANO.
                 </p>
                 <div class="hero-cta-a">
-                    <a href="#obras" class="btn-hero font-mono text-[10px] ls-tech text-copper px-8 md:px-10 py-3.5 md:py-4 inline-block relative z-10">ADENTRARSE EN EL VÓRTICE</a>
+                    <a href="#obras" class="btn-hero font-mono text-[10px] ls-tech text-cafeclaro px-8 md:px-10 py-3.5 md:py-4 inline-block relative z-10">SUMERGIRSE EN EL VÓRTICE</a>
                 </div>
             </div>
         </div>
@@ -363,10 +388,13 @@
                     <div class="rv rv-d1 mt-4">
                         <div class="grid-line w-full mb-6"></div>
                         <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate mb-5">
-                            La artesanía no es nostalgia, es innovación. Un diálogo íntimo y brutal entre las manos, las herramientas de taller y la materia viva.
+                            Cada anillo VÓRTICE nace de un proceso artesanal, elaborado uno a uno y completamente a mano, donde la paciencia y la intención se entrelazan con la materia. En el taller, los alambres, piezas de acero, fragmentos de madera y acrílicos se transforman en pequeñas esculturas de energía.
+                        </p>
+                        <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate mb-5">
+                            Cada creación contiene al menos un <em class="not-italic text-ink font-medium">elemento de reuso</em>, rescatado a partir de la recolección y el despiece de objetos que encuentran nueva vida en su reconfiguración.
                         </p>
                         <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate">
-                            Engranajes que alguna vez movieron maquinaria pesada ahora adornan nudillos. Tornillos que sostenían puentes ahora sostienen perlas. El caos industrial se resignifica para forjar el alma de cada pieza.
+                            El proceso de elaboración ocurre en un estado de <em class="not-italic text-ink font-medium">meditación activa</em>: una práctica de conexión con la energía interna que busca evocar la reconexión y resignificación del caos como filosofía de vida. En el corazón de cada pieza siempre hay <em class="not-italic text-ink font-medium">un engranaje y un amarre</em> —símbolos del equilibrio entre el orden y el caos— que, al entrelazarse, dan movimiento, sentido y vida al acto mismo de crear.
                         </p>
                     </div>
                     <div class="rv rv-d2 mt-8">
@@ -401,13 +429,18 @@
                     <button class="acc-trigger w-full py-7 md:py-9 flex items-center justify-between text-left group" aria-expanded="true">
                         <div class="flex items-center gap-4 md:gap-7">
                             <span class="font-mono text-[10px] ls-tech text-copper/45">REF. 01</span>
-                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors">VANGUARDIA</span>
+                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors">LA ARTESANÍA COMO VANGUARDIA</span>
                         </div>
                         <span class="acc-icon font-display text-xl text-copper">+</span>
                     </button>
                     <div class="acc-content">
-                        <div class="pb-7 pl-12 md:pl-[100px] max-w-lg">
-                            <p class="font-body text-[13px] leading-[1.85] text-slate">El gesto humano sobre el metal frío. Cada pieza es elaborada completamente a mano, sin moldes, sin producción en serie. La imperfección controlada es la firma de autenticidad que ninguna máquina puede replicar.</p>
+                        <div class="pb-8 md:pl-[100px]">
+                            <div class="grid grid-cols-1 md:grid-cols-[1fr,260px] gap-6 md:gap-10 items-start max-w-3xl">
+                                <p class="font-body text-[13px] leading-[1.85] text-slate">En Vórtice, la artesanía no es nostalgia, es un acto de innovación. Cada anillo surge del diálogo íntimo entre las manos y la materia, donde el gesto humano se convierte en una forma de pensamiento y cada imperfección es evidencia de autenticidad. La técnica manual se eleva a lenguaje contemporáneo: un puente entre el pasado y el futuro donde la sensibilidad del creador imprime carácter, sentido y alma a cada pieza.</p>
+                                <div class="frame-corner p-1.5">
+                                    <div class="overflow-hidden"><img src="public/verdades/vanguardia.jpg" alt="Anillo Vórtice junto a calibrador y herramientas del taller" class="w-full aspect-[3/4] object-cover" loading="lazy"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="acc-bar h-px bg-copper"></div>
@@ -417,13 +450,21 @@
                     <button class="acc-trigger w-full py-7 md:py-9 flex items-center justify-between text-left group" aria-expanded="false">
                         <div class="flex items-center gap-4 md:gap-7">
                             <span class="font-mono text-[10px] ls-tech text-copper/45">REF. 02</span>
-                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors">IDENTIDAD</span>
+                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors">LA EXCLUSIVIDAD COMO IDENTIDAD</span>
                         </div>
                         <span class="acc-icon font-display text-xl text-copper">+</span>
                     </button>
                     <div class="acc-content">
-                        <div class="pb-7 pl-12 md:pl-[100px] max-w-lg">
-                            <p class="font-body text-[13px] leading-[1.85] text-slate">Singularidad absoluta. Ningún talismán se repite. Cada obra nace una sola vez, destinada a una sola persona. Tu pieza será tan única como la huella que dejaste al nacer.</p>
+                        <div class="pb-8 md:pl-[100px]">
+                            <div class="grid grid-cols-1 md:grid-cols-[1fr,260px] gap-6 md:gap-10 items-start max-w-3xl">
+                                <div>
+                                    <p class="font-body text-[13px] leading-[1.85] text-slate mb-5">La singularidad es la esencia de Vórtice. Ninguna creación se repite, porque cada anillo nace de un instante irrepetible, de una combinación única de energía, intuición y materia. Llevar un Vórtice es portar una identidad que no se replica, una huella simbólica que refleja la individualidad de quien la posee. La exclusividad no es lujo, sino autenticidad: un manifiesto de libertad creativa.</p>
+                                    <p class="font-display italic text-[15px] leading-[1.6] text-copper">&ldquo;En la mano, el arte se vuelve extensión del alma: un gesto, un anillo, una historia.&rdquo;</p>
+                                </div>
+                                <div class="frame-corner p-1.5">
+                                    <div class="overflow-hidden"><img src="public/verdades/identidad.jpg" alt="Anillo Vórtice único sobre engranaje industrial" class="w-full aspect-[3/4] object-cover" loading="lazy"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="acc-bar h-px bg-copper"></div>
@@ -433,13 +474,18 @@
                     <button class="acc-trigger w-full py-7 md:py-9 flex items-center justify-between text-left group" aria-expanded="false">
                         <div class="flex items-center gap-4 md:gap-7">
                             <span class="font-mono text-[10px] ls-tech text-copper/45">REF. 03</span>
-                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors">CIRCULARIDAD</span>
+                            <span class="font-body text-[12px] md:text-[14px] ls-wide text-ink uppercase group-hover:text-copper transition-colors">LA CIRCULARIDAD COMO PROPÓSITO</span>
                         </div>
                         <span class="acc-icon font-display text-xl text-copper">+</span>
                     </button>
                     <div class="acc-content">
-                        <div class="pb-7 pl-12 md:pl-[100px] max-w-lg">
-                            <p class="font-body text-[13px] leading-[1.85] text-slate">Tuercas, tornillos y engranajes que renacen. Lo que otros descartan, nosotros lo alquimizamos en arte. Metales reciclados, mecanismos rescatados: la sostenibilidad es nuestra materia prima.</p>
+                        <div class="pb-8 md:pl-[100px]">
+                            <div class="grid grid-cols-1 md:grid-cols-[1fr,260px] gap-6 md:gap-10 items-start max-w-3xl">
+                                <p class="font-body text-[13px] leading-[1.85] text-slate">Vórtice transforma lo que otros descartan en nuevas formas de belleza. Los materiales reutilizados —metales, piezas mecánicas, engranajes o fragmentos industriales— recuperan su propósito en un ciclo continuo de resignificación. La marca asume la circularidad como ética y estética: cada creación es una celebración del renacer, un recordatorio de que nada se pierde, todo se transforma.</p>
+                                <div class="frame-corner p-1.5">
+                                    <div class="overflow-hidden"><img src="public/verdades/circularidad.jpg" alt="Anillo Vórtice con turquesa, tuerca oxidada y piedra volcánica" class="w-full aspect-[3/4] object-cover" loading="lazy"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="acc-bar h-px bg-copper"></div>
@@ -461,7 +507,7 @@
                     <h3 class="font-display text-[clamp(2rem,5vw,4.5rem)] font-medium text-ink leading-[.95]">OBRAS<br>DISPONIBLES</h3>
                 </div>
                 <div class="rv rv-d1 mt-5 md:mt-0">
-                    <p class="font-mono text-[10px] ls-tech text-fossil max-w-[260px]">CADA PIEZA ES ÚNICA.<br>NINGÚN DISEÑO SE REPITE.</p>
+                    <p class="font-mono text-[10px] ls-tech text-fossil max-w-[280px]">CADA PIEZA ES ÚNICA.<br>NINGÚN DISEÑO SE REPITE.<br><a href="#tamanos" class="text-copper hover:text-ink transition-colors">VALOR SEGÚN TAMAÑO &darr;</a></p>
                 </div>
             </div>
 
@@ -469,23 +515,23 @@
 
                 <div class="piece-card group rv bg-canvas">
                     <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622166.jpg" alt="Caos Primigenio" class="w-full h-full object-cover" loading="lazy">
+                        <img src="public/obras/obra-26694.jpg" alt="Materia Bruta — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
-                        <h4 class="font-display text-[17px] text-ink font-medium">Caos Primigenio</h4>
+                        <h4 class="font-display text-[17px] text-ink font-medium">Materia Bruta</h4>
                         <div class="flex items-center justify-between mt-1.5">
-                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: ACERO + COBRE + ENGRANAJES</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 480.000 <span class="text-fossil text-[8px]">COP</span></span>
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — GRANDE</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 150.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="piece-card group rv rv-d1 bg-canvas">
                     <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622354.jpg" alt="Alma Violeta" class="w-full h-full object-cover" loading="lazy">
+                        <img src="public/obras/obra-2.jpg" alt="Alma Violeta — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
@@ -493,72 +539,120 @@
                     <div class="p-4 pb-5">
                         <h4 class="font-display text-[17px] text-ink font-medium">Alma Violeta</h4>
                         <div class="flex items-center justify-between mt-1.5">
-                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: PLATA + ACRÍLICO + PERLA</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 520.000 <span class="text-fossil text-[8px]">COP</span></span>
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — GRANDE</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 150.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="piece-card group rv rv-d2 bg-canvas">
                     <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622452.jpg" alt="Rosa Industrial" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
-                            <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
-                        </div>
-                    </div>
-                    <div class="p-4 pb-5">
-                        <h4 class="font-display text-[17px] text-ink font-medium">Rosa Industrial</h4>
-                        <div class="flex items-center justify-between mt-1.5">
-                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: COBRE + CAUCHO + CUENTA</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 350.000 <span class="text-fossil text-[8px]">COP</span></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="piece-card group rv bg-canvas">
-                    <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622455.jpg" alt="Engranaje Celeste" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
-                            <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
-                        </div>
-                    </div>
-                    <div class="p-4 pb-5">
-                        <h4 class="font-display text-[17px] text-ink font-medium">Engranaje Celeste</h4>
-                        <div class="flex items-center justify-between mt-1.5">
-                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: BRONCE + ACERO + CAUCHO</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 620.000 <span class="text-fossil text-[8px]">COP</span></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="piece-card group rv rv-d1 bg-canvas">
-                    <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622456.jpg" alt="Órbita Turquesa" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
-                            <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
-                        </div>
-                    </div>
-                    <div class="p-4 pb-5">
-                        <h4 class="font-display text-[17px] text-ink font-medium">Órbita Turquesa</h4>
-                        <div class="flex items-center justify-between mt-1.5">
-                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: ACERO + TURQUESA + ENGRANAJE</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 390.000 <span class="text-fossil text-[8px]">COP</span></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="piece-card group rv rv-d2 bg-canvas">
-                    <div class="kb-wrap aspect-[3/4] relative">
-                        <img src="public/1000622467.jpg" alt="Mecanismo Áureo" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+                        <img src="public/obras/obra-26700.jpg" alt="Mecanismo Áureo — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
                         <h4 class="font-display text-[17px] text-ink font-medium">Mecanismo Áureo</h4>
                         <div class="flex items-center justify-between mt-1.5">
-                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: ORO VIEJO + PERLA + CAUCHO</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 890.000 <span class="text-fossil text-[8px]">COP</span></span>
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — MEDIANO</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 120.000 <span class="text-fossil text-[8px]">COP</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="piece-card group rv bg-canvas">
+                    <div class="kb-wrap aspect-[3/4] relative">
+                        <img src="public/obras/obra-26692.jpg" alt="Órbita Lila — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+                            <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
+                        </div>
+                    </div>
+                    <div class="p-4 pb-5">
+                        <h4 class="font-display text-[17px] text-ink font-medium">Órbita Lila</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — MEDIANO</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 120.000 <span class="text-fossil text-[8px]">COP</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="piece-card group rv rv-d1 bg-canvas">
+                    <div class="kb-wrap aspect-[3/4] relative">
+                        <img src="public/obras/obra-26697.jpg" alt="Eslabón Primigenio — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+                            <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
+                        </div>
+                    </div>
+                    <div class="p-4 pb-5">
+                        <h4 class="font-display text-[17px] text-ink font-medium">Eslabón Primigenio</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — GRANDE</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 150.000 <span class="text-fossil text-[8px]">COP</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="piece-card group rv rv-d2 bg-canvas">
+                    <div class="kb-wrap aspect-[3/4] relative">
+                        <img src="public/obras/obra-26691.jpg" alt="Reloj de Arena — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+                            <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
+                        </div>
+                    </div>
+                    <div class="p-4 pb-5">
+                        <h4 class="font-display text-[17px] text-ink font-medium">Reloj de Arena</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — PEQUEÑO</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 80.000 <span class="text-fossil text-[8px]">COP</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="piece-card group rv bg-canvas">
+                    <div class="kb-wrap aspect-[3/4] relative">
+                        <img src="public/obras/obra-26699.jpg" alt="Órbita Turquesa — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+                            <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
+                        </div>
+                    </div>
+                    <div class="p-4 pb-5">
+                        <h4 class="font-display text-[17px] text-ink font-medium">Órbita Turquesa</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — MEDIANO</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 120.000 <span class="text-fossil text-[8px]">COP</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="piece-card group rv rv-d1 bg-canvas">
+                    <div class="kb-wrap aspect-[3/4] relative">
+                        <img src="public/obras/obra-26703.jpg" alt="Fénix de Plata — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+                            <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
+                        </div>
+                    </div>
+                    <div class="p-4 pb-5">
+                        <h4 class="font-display text-[17px] text-ink font-medium">Fénix de Plata</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — GRANDE</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 150.000 <span class="text-fossil text-[8px]">COP</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="piece-card group rv rv-d2 bg-canvas">
+                    <div class="kb-wrap aspect-[3/4] relative">
+                        <img src="public/obras/obra-93331.jpg" alt="Caos Primigenio — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+                            <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
+                        </div>
+                    </div>
+                    <div class="p-4 pb-5">
+                        <h4 class="font-display text-[17px] text-ink font-medium">Caos Primigenio</h4>
+                        <div class="flex items-center justify-between mt-1.5">
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — PEQUEÑO</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 80.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
@@ -568,32 +662,32 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mt-5 md:mt-6">
                 <div class="piece-card group rv bg-canvas">
                     <div class="kb-wrap aspect-[4/3] relative">
-                        <img src="public/1000622469.jpg" alt="Vórtice Dorado" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+                        <img src="public/obras/obra-26686.jpg" alt="Vórtice Dorado — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
                         <h4 class="font-display text-[17px] text-ink font-medium">Vórtice Dorado</h4>
                         <div class="flex items-center justify-between mt-1.5">
-                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: LATÓN + ENGRANAJE + PERLA + CAUCHO</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 750.000 <span class="text-fossil text-[8px]">COP</span></span>
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — GRANDE</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 150.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
 
                 <div class="piece-card group rv rv-d1 bg-canvas">
                     <div class="kb-wrap aspect-[4/3] relative">
-                        <img src="public/1000622161.jpg" alt="Materia Bruta" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-gallery/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+                        <img src="public/obras/obra-26702.jpg" alt="Llama Interior — anillo escultórico Vórtice" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-abyss/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                             <a href="#contacto" class="btn-acquire font-mono text-[9px] ls-tech text-ink px-5 py-2.5 relative z-10 w-full text-center">SOLICITAR PIEZA ÚNICA</a>
                         </div>
                     </div>
                     <div class="p-4 pb-5">
-                        <h4 class="font-display text-[17px] text-ink font-medium">Materia Bruta</h4>
+                        <h4 class="font-display text-[17px] text-ink font-medium">Llama Interior</h4>
                         <div class="flex items-center justify-between mt-1.5">
-                            <span class="font-mono text-[8px] ls-tech text-fossil">MAT: ACERO + TURQUESA + MINERAL + PERLA</span>
-                            <span class="font-mono text-[11px] text-graphite">$ 560.000 <span class="text-fossil text-[8px]">COP</span></span>
+                            <span class="font-mono text-[8px] ls-tech text-fossil">PIEZA ÚNICA — MEDIANO</span>
+                            <span class="font-mono text-[11px] text-graphite">$ 120.000 <span class="text-fossil text-[8px]">COP</span></span>
                         </div>
                     </div>
                 </div>
@@ -603,6 +697,289 @@
                 <div class="grid-line w-32 mx-auto mb-8"></div>
                 <p class="font-mono text-[10px] ls-tech text-fossil mb-6">VENTA CONSULTIVA — PIEZAS ÚNICAS — ENVÍO NACIONAL</p>
                 <a href="#contacto" class="btn-ink font-mono text-[10px] ls-tech text-ink px-10 py-4 inline-block relative z-10">CONTACTAR PARA ADQUIRIR</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- TAMAÑOS                                -->
+    <!-- ══════════════════════════════════════ -->
+    <section id="tamanos" class="relative py-24 md:py-40 bg-canvas overflow-hidden">
+        <div class="divider-a w-full absolute top-0"></div>
+        <div class="max-w-[1400px] mx-auto px-5 md:px-10">
+            <div class="rv mb-14 md:mb-20">
+                <span class="ref-label block mb-3">ref. 007 — tama&ntilde;os</span>
+                <h3 class="font-display text-[clamp(1.8rem,4vw,3.5rem)] font-medium text-ink leading-[1]">Tama&ntilde;os <span class="italic text-copper">V&Oacute;RTICES</span></h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 mb-16 md:mb-24">
+                <div class="lg:col-span-4 rv">
+                    <div class="grid-line w-full mb-6"></div>
+                    <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate mb-5">
+                        Los anillos V&Oacute;RTICES est&aacute;n disponibles en tres tama&ntilde;os aproximados, lo que nos permite mantener costos homog&eacute;neos entre referencias. Dado que cada pieza es &uacute;nica y artesanal, pueden existir ligeras variaciones seg&uacute;n el estilo.
+                    </p>
+                    <p class="font-body text-[13px] md:text-[14px] leading-[1.85] text-slate">
+                        Cada anillo V&Oacute;RTICE est&aacute; elaborado en <em class="not-italic text-ink font-medium">alambre de aluminio</em>, un material que ofrece una terminaci&oacute;n maleable y permite ajustar el anillo al tama&ntilde;o exacto de tu dedo para un ajuste perfecto y personalizado.
+                    </p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 bg-copper"></div>
+                        <span class="font-mono text-[9px] ls-tech text-copper">AJUSTE PERSONALIZADO A TU MEDIDA</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
+                    <div class="rv bg-gallery p-6 md:p-7 flex flex-col items-center text-center">
+                        <svg class="h-24 mb-5" viewBox="0 0 100 100"><ellipse cx="50" cy="52" rx="17" ry="22" fill="none" stroke="#A6824E" stroke-width="1.4"/><ellipse cx="50" cy="52" rx="22" ry="17" fill="none" stroke="#A6824E" stroke-width=".6" stroke-dasharray="2 4"/></svg>
+                        <span class="font-mono text-[9px] ls-tech text-copper mb-2">1. PEQUE&Ntilde;O</span>
+                        <div class="font-display text-[26px] text-ink font-medium leading-none mb-1.5">3 &times; 4 <span class="text-[13px] text-fossil">cm</span></div>
+                        <span class="font-mono text-[8px] ls-tech text-fossil mb-5">MEDIDA APROXIMADA</span>
+                        <div class="grid-line w-full mb-4"></div>
+                        <span class="font-mono text-[12px] text-graphite">$ 80.000 <span class="text-fossil text-[8px]">COP</span></span>
+                    </div>
+                    <div class="rv rv-d1 bg-gallery p-6 md:p-7 flex flex-col items-center text-center">
+                        <svg class="h-24 mb-5" viewBox="0 0 100 100"><ellipse cx="50" cy="52" rx="23" ry="29" fill="none" stroke="#A6824E" stroke-width="1.4"/><ellipse cx="50" cy="52" rx="29" ry="23" fill="none" stroke="#A6824E" stroke-width=".6" stroke-dasharray="2 4"/></svg>
+                        <span class="font-mono text-[9px] ls-tech text-copper mb-2">2. MEDIANO</span>
+                        <div class="font-display text-[26px] text-ink font-medium leading-none mb-1.5">4 &times; 5 <span class="text-[13px] text-fossil">cm</span></div>
+                        <span class="font-mono text-[8px] ls-tech text-fossil mb-5">MEDIDA APROXIMADA</span>
+                        <div class="grid-line w-full mb-4"></div>
+                        <span class="font-mono text-[12px] text-graphite">$ 120.000 <span class="text-fossil text-[8px]">COP</span></span>
+                    </div>
+                    <div class="rv rv-d2 bg-gallery p-6 md:p-7 flex flex-col items-center text-center">
+                        <svg class="h-24 mb-5" viewBox="0 0 100 100"><ellipse cx="50" cy="52" rx="29" ry="36" fill="none" stroke="#A6824E" stroke-width="1.4"/><ellipse cx="50" cy="52" rx="36" ry="29" fill="none" stroke="#A6824E" stroke-width=".6" stroke-dasharray="2 4"/></svg>
+                        <span class="font-mono text-[9px] ls-tech text-copper mb-2">3. GRANDE</span>
+                        <div class="font-display text-[26px] text-ink font-medium leading-none mb-1.5">5 &times; 6 <span class="text-[13px] text-fossil">cm</span></div>
+                        <span class="font-mono text-[8px] ls-tech text-fossil mb-5">MEDIDA APROXIMADA</span>
+                        <div class="grid-line w-full mb-4"></div>
+                        <span class="font-mono text-[12px] text-graphite">$ 150.000 <span class="text-fossil text-[8px]">COP</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- La escala en la mano -->
+            <div class="rv mb-8">
+                <span class="font-mono text-[9px] ls-tech text-fossil">LA ESCALA EN LA MANO</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 mb-16 md:mb-24">
+                <div class="rv frame-corner p-1.5">
+                    <div class="overflow-hidden about-img"><img src="public/tamanos/mano-1.jpg" alt="Anillo V&oacute;rtice puesto en la mano — escala real" class="w-full aspect-[3/4] object-cover" loading="lazy"></div>
+                </div>
+                <div class="rv rv-d1 frame-corner p-1.5">
+                    <div class="overflow-hidden about-img"><img src="public/tamanos/mano-2.jpg" alt="Anillo V&oacute;rtice grande sobre engranaje dorado en la mano" class="w-full aspect-[3/4] object-cover" loading="lazy"></div>
+                </div>
+                <div class="rv rv-d2 frame-corner p-1.5">
+                    <div class="overflow-hidden about-img"><img src="public/tamanos/mano-3.jpg" alt="Anillo V&oacute;rtice mediano puesto en la mano" class="w-full aspect-[3/4] object-cover" loading="lazy"></div>
+                </div>
+            </div>
+
+            <!-- La postal -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                <div class="lg:col-span-5 lg:col-start-2 rv">
+                    <div class="frame-corner p-1.5">
+                        <img src="public/postal/postal-frente.jpg" alt="Postal V&Oacute;RTICE — obra gr&aacute;fica de la marca" class="w-full" loading="lazy">
+                    </div>
+                </div>
+                <div class="lg:col-span-4 lg:col-start-8 rv rv-d1">
+                    <img src="public/marca/isologo-cafe.png" alt="" class="w-12 md:w-14 mb-6">
+                    <span class="font-mono text-[9px] ls-tech text-copper block mb-4">LA POSTAL V&Oacute;RTICE</span>
+                    <p class="font-display italic text-[clamp(1.3rem,2.6vw,2rem)] leading-[1.25] text-ink mb-5">&ldquo;Donde la energ&iacute;a se convierte en arte.&rdquo;</p>
+                    <p class="font-body text-[13px] leading-[1.85] text-slate">
+                        Una postal tama&ntilde;o carta que condensa el esp&iacute;ritu de la marca: en el coraz&oacute;n de cada creaci&oacute;n late un caos m&aacute;gico, una danza infinita de formas y fuerzas que convergen en piezas &uacute;nicas, hechas a mano.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- INSTAGRAM FEEDS                        -->
+    <!-- ══════════════════════════════════════ -->
+    <section id="feed" class="relative py-24 md:py-40 bg-gallery">
+        <div class="max-w-[1200px] mx-auto px-5 md:px-10">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10 md:mb-14">
+                <div class="rv">
+                    <span class="ref-label block mb-3">ref. 008 — instagram feeds</span>
+                    <h3 class="font-display text-[clamp(2rem,5vw,4.5rem)] font-medium text-ink leading-[.95]">INSTAGRAM<br><span class="italic text-copper">FEEDS</span></h3>
+                </div>
+                <div class="rv rv-d1 mt-5 md:mt-0 md:text-right">
+                    <a href="https://www.instagram.com/vortice_anillos" target="_blank" rel="noopener" class="font-mono text-[10px] ls-tech text-copper hover:text-ink transition-colors block mb-2">@VORTICE_ANILLOS</a>
+                    <p class="font-mono text-[10px] ls-tech text-fossil">VG — GRANDE &middot; VM — MEDIANO &middot; VP — PEQUE&Ntilde;O</p>
+                </div>
+            </div>
+
+            <div class="rv flex flex-wrap gap-2.5 mb-8 md:mb-10">
+                <button class="feed-btn active font-mono text-[9px] ls-tech px-5 py-2.5 text-slate" data-f="all">TODAS</button>
+                <button class="feed-btn font-mono text-[9px] ls-tech px-5 py-2.5 text-slate" data-f="vg">VG — GRANDES &middot; $ 150.000</button>
+                <button class="feed-btn font-mono text-[9px] ls-tech px-5 py-2.5 text-slate" data-f="vm">VM — MEDIANOS &middot; $ 120.000</button>
+                <button class="feed-btn font-mono text-[9px] ls-tech px-5 py-2.5 text-slate" data-f="vp">VP — PEQUE&Ntilde;OS &middot; $ 80.000</button>
+            </div>
+
+            <div id="feedGrid" class="rv grid grid-cols-3 md:grid-cols-5 xl:grid-cols-6 gap-1.5 md:gap-2">
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-01.jpg" alt="Anillo V&oacute;rtice VG 01 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 01</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-02.jpg" alt="Anillo V&oacute;rtice VG 02 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 02</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-03.jpg" alt="Anillo V&oacute;rtice VG 03 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 03</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-04.jpg" alt="Anillo V&oacute;rtice VG 04 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 04</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-05.jpg" alt="Anillo V&oacute;rtice VG 05 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 05</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-06.jpg" alt="Anillo V&oacute;rtice VG 06 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 06</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-07.jpg" alt="Anillo V&oacute;rtice VG 07 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 07</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-08.jpg" alt="Anillo V&oacute;rtice VG 08 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 08</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-09.jpg" alt="Anillo V&oacute;rtice VG 09 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 09</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-10.jpg" alt="Anillo V&oacute;rtice VG 10 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 10</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-11.jpg" alt="Anillo V&oacute;rtice VG 11 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 11</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-12.jpg" alt="Anillo V&oacute;rtice VG 12 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 12</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-13.jpg" alt="Anillo V&oacute;rtice VG 13 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 13</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-14.jpg" alt="Anillo V&oacute;rtice VG 14 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 14</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-15.jpg" alt="Anillo V&oacute;rtice VG 15 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 15</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-16.jpg" alt="Anillo V&oacute;rtice VG 16 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 16</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-17.jpg" alt="Anillo V&oacute;rtice VG 17 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 17</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-18.jpg" alt="Anillo V&oacute;rtice VG 18 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 18</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-19.jpg" alt="Anillo V&oacute;rtice VG 19 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 19</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-20.jpg" alt="Anillo V&oacute;rtice VG 20 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 20</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-21.jpg" alt="Anillo V&oacute;rtice VG 21 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 21</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vg">
+                    <img src="public/feed/vg-22.jpg" alt="Anillo V&oacute;rtice VG 22 — tama&ntilde;o grande" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VG 22</span><span class="font-mono text-[9px] text-white/60">$ 150.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-01.jpg" alt="Anillo V&oacute;rtice VM 01 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 01</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-02.jpg" alt="Anillo V&oacute;rtice VM 02 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 02</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-03.jpg" alt="Anillo V&oacute;rtice VM 03 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 03</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-04.jpg" alt="Anillo V&oacute;rtice VM 04 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 04</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-05.jpg" alt="Anillo V&oacute;rtice VM 05 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 05</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-06.jpg" alt="Anillo V&oacute;rtice VM 06 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 06</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-07.jpg" alt="Anillo V&oacute;rtice VM 07 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 07</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-08.jpg" alt="Anillo V&oacute;rtice VM 08 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 08</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-09.jpg" alt="Anillo V&oacute;rtice VM 09 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 09</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-10.jpg" alt="Anillo V&oacute;rtice VM 10 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 10</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-11.jpg" alt="Anillo V&oacute;rtice VM 11 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 11</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vm">
+                    <img src="public/feed/vm-12.jpg" alt="Anillo V&oacute;rtice VM 12 — tama&ntilde;o mediano" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VM 12</span><span class="font-mono text-[9px] text-white/60">$ 120.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vp">
+                    <img src="public/feed/vp-01.jpg" alt="Anillo V&oacute;rtice VP 01 — tama&ntilde;o peque&ntilde;o" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VP 01</span><span class="font-mono text-[9px] text-white/60">$ 80.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vp">
+                    <img src="public/feed/vp-02.jpg" alt="Anillo V&oacute;rtice VP 02 — tama&ntilde;o peque&ntilde;o" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VP 02</span><span class="font-mono text-[9px] text-white/60">$ 80.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vp">
+                    <img src="public/feed/vp-03.jpg" alt="Anillo V&oacute;rtice VP 03 — tama&ntilde;o peque&ntilde;o" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VP 03</span><span class="font-mono text-[9px] text-white/60">$ 80.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vp">
+                    <img src="public/feed/vp-04.jpg" alt="Anillo V&oacute;rtice VP 04 — tama&ntilde;o peque&ntilde;o" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VP 04</span><span class="font-mono text-[9px] text-white/60">$ 80.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vp">
+                    <img src="public/feed/vp-05.jpg" alt="Anillo V&oacute;rtice VP 05 — tama&ntilde;o peque&ntilde;o" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VP 05</span><span class="font-mono text-[9px] text-white/60">$ 80.000</span></div>
+                </div>
+                <div class="feed-tile aspect-square" data-s="vp">
+                    <img src="public/feed/vp-06.jpg" alt="Anillo V&oacute;rtice VP 06 — tama&ntilde;o peque&ntilde;o" class="w-full h-full object-cover" loading="lazy">
+                    <div class="feed-meta"><span class="font-mono text-[9px] ls-tech text-white/85">VP 06</span><span class="font-mono text-[9px] text-white/60">$ 80.000</span></div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 md:mt-16 rv">
+                <p class="font-mono text-[10px] ls-tech text-fossil mb-6">CADA FOTOGRAF&Iacute;A ES UNA PIEZA &Uacute;NICA — SOLICITA LA TUYA POR SU C&Oacute;DIGO</p>
+                <a href="#contacto" class="btn-ink font-mono text-[10px] ls-tech text-ink px-10 py-4 inline-block relative z-10">CONSULTAR DISPONIBILIDAD</a>
             </div>
         </div>
     </section>
@@ -617,7 +994,7 @@
         </svg>
         <div class="relative z-10 max-w-screen-md mx-auto px-5 md:px-10 text-center">
             <div class="rv">
-                <span class="ref-label block mb-5">ref. 007 — contacto</span>
+                <span class="ref-label block mb-5">ref. 009 — contacto</span>
                 <h3 class="font-display text-[clamp(1.8rem,4.5vw,3.5rem)] font-medium text-ink leading-[1.1] mb-5">
                     Tu Talismán<br>Te Está <span class="italic text-copper">Esperando</span>
                 </h3>
@@ -644,11 +1021,12 @@
         <div class="max-w-[1400px] mx-auto px-5 md:px-10 py-10 md:py-14">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 items-center">
                 <div class="flex items-center gap-7 justify-center md:justify-start">
-                    <a href="#" class="font-mono text-[9px] ls-tech text-white/25 hover:text-copper transition-colors">INSTAGRAM</a>
+                    <a href="https://www.instagram.com/vortice_anillos" target="_blank" rel="noopener" class="font-mono text-[9px] ls-tech text-white/25 hover:text-copper transition-colors">INSTAGRAM</a>
                     <a href="#" class="font-mono text-[9px] ls-tech text-white/25 hover:text-copper transition-colors">TIKTOK</a>
                 </div>
                 <div class="text-center">
-                    <span class="font-display text-lg font-medium tracking-[.12em] block mb-2"><span class="text-white/75">V</span><span class="text-copper">Ó</span><span class="text-white/75">RTICE</span></span>
+                    <img src="public/marca/isologo-cafe.png" alt="" class="w-9 mx-auto mb-3 opacity-80">
+                    <span class="text-copper/80 block mb-2"><span class="logo-mark w-[104px] h-[24px]"></span><span class="sr-only">VÓRTICE</span></span>
                     <p class="font-mono text-[8px] ls-tech text-white/15">&copy; SOMOS VÓRTICE. TODOS LOS DERECHOS RESERVADOS 2026.</p>
                 </div>
                 <div class="text-center md:text-right">
@@ -670,8 +1048,9 @@
         if(glow&&innerWidth>1024){let mx=0,my=0,gx=0,gy=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});(function l(){gx+=(mx-gx)*.07;gy+=(my-gy)*.07;glow.style.left=gx+'px';glow.style.top=gy+'px';requestAnimationFrame(l)})()}
 
         const hdr=document.getElementById('hdr');
+        const logoT=hdr.querySelector('.logo-t');
         const heroH=innerHeight;
-        function ckHdr(){hdr.classList.toggle('scrolled',scrollY>heroH*.82)}
+        function ckHdr(){const s=scrollY>heroH*.82;hdr.classList.toggle('scrolled',s);if(logoT)logoT.style.color=s?'#1A1918':'rgba(250,249,247,.92)'}
 
         const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
         document.querySelectorAll('.rv,.divider-a').forEach(el=>obs.observe(el));
@@ -694,6 +1073,13 @@
         document.querySelectorAll('.acc-item').forEach(it=>{it.querySelector('.acc-trigger').addEventListener('click',()=>{const w=it.classList.contains('open');document.querySelectorAll('.acc-item').forEach(i=>{i.classList.remove('open');i.querySelector('.acc-trigger').setAttribute('aria-expanded','false')});if(!w){it.classList.add('open');it.querySelector('.acc-trigger').setAttribute('aria-expanded','true')}})});
 
         document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)scrollTo({top:t.getBoundingClientRect().top+scrollY-70,behavior:'smooth'})})});
+
+        const feedBtns=document.querySelectorAll('.feed-btn'),feedTiles=document.querySelectorAll('.feed-tile');
+        feedBtns.forEach(b=>b.addEventListener('click',()=>{
+            feedBtns.forEach(x=>x.classList.remove('active'));b.classList.add('active');
+            const f=b.dataset.f;
+            feedTiles.forEach(t=>{t.style.display=(f==='all'||t.dataset.s===f)?'':'none'});
+        }));
 
         ckHdr();plx();
     })();
